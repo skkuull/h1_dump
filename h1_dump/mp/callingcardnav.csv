@@ -1,0 +1,8 @@
+category_general,,LUA_MENU_DEFAULT,general,ui_challenge_general,
+category_bootcamp,,LUA_MENU_BOOTCAMP,bootcamp,ui_challenge_boot_camp,
+category_gamemodes,,LUA_MENU_GAMEMODES,gamemodes,ui_challenge_elite,
+category_killer,,LUA_MENU_KILLER,killer,ui_challenge_killer,
+category_humiliation,,LUA_MENU_HUMILIATION,humiliation,ui_challenge_humiliation,
+category_perks,,LUA_MENU_PERKS,perks,ui_challenge_elite,
+category_valor,,LUA_MENU_VALOR,valor,ui_challenge_elite,
+category_prestige,,LUA_MENU_PRESTIGE,prestige,ui_challenge_elite,

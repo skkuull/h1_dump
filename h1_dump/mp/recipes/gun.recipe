@@ -1,0 +1,17 @@
+gametype = gun
+commonOption.timeLimit = 10.000000
+commonOption.scoreLimit = 75
+commonOption.preMatchTimer = 15.000000
+commonOption.preRoundTimer = 5.000000
+commonOption.showKillcam = 1
+commonOption.forceRespawn = 1
+commonOption.maxHealth = 100.000000
+commonOption.healthRegen = 5.000000
+commonOption.killstreakUAVKills = 3
+commonOption.killstreakAirStrikeKills = 5
+commonOption.killstreakHeliKills = 7
+gunData.setbackLevels = 1
+gunData.cycleCount = 1
+gunData.weaponList = 0
+gunData.weaponOrder = 0
+gunData.weaponAttachments = 0

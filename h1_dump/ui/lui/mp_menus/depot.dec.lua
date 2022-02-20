@@ -1,0 +1,16 @@
+if Engine.InFrontend() then
+	require( "LUI.LUIParticleFx" )
+	require( "LUI.mp_menus.MPDepotBase" )
+	require( "LUI.mp_menus.MPDepot" )
+	require( "LUI.mp_menus.MPDepotArmory" )
+	require( "LUI.mp_menus.MPDepotHelp" )
+	require( "LUI.mp_menus.MPDepotSupplyDropPurchasePopup" )
+	require( "LUI.mp_menus.MPDepotLootCard" )
+	require( "LUI.mp_menus.MPLootDropsBase" )
+	require( "LUI.mp_menus.MPDepotOpenLoot" )
+	require( "LUI.mp_menus.MPDepotCollections" )
+	require( "LUI.mp_menus.MPDepotCollectionDetails" )
+	require( "LUI.mp_menus.MPDepotCollectionRewardSplash" )
+	require( "LUI.mp_menus.MPDepotCollectionOperationBountyDetails" )
+	require( "LUI.mp_menus.MPDepotFabricatePopup" )
+end

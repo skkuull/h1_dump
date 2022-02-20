@@ -1,0 +1,1349 @@
+//==========================================================================
+//
+// Character Animation Script     M U L T I P L A Y E R
+//
+//==========================================================================
+
+//==========================================================================
+// ANIMATIONS - PART 3
+//
+
+ANIMATIONS
+
+STATE COMBAT
+{
+	climbup
+	{
+		default
+		{
+			// Can't play the chicken dance here as a temp because it has no movement speed
+			both pb_climbup
+		}
+	}
+	climbdown
+	{
+		default
+		{
+			// Can't play the chicken dance here as a temp because it has no movement speed
+			both pb_climbdown
+		}
+	}
+
+	//==========
+	// Mantle animations
+	
+	mantle2idle
+	{	
+//		weaponclass shield, mantle_state mantle_16_up
+//		{
+//			both mp_shield_mantle_16_up_idle
+//		}
+//		
+//		weaponclass shield, mantle_state mantle_16_over
+//		{
+//			both mp_shield_mantle_16_over_idle
+//		}
+//	
+//		weaponclass shield, mantle_state mantle_24_up
+//		{
+//			both mp_shield_mantle_24_up_idle
+//		}
+//		
+//		weaponclass shield, mantle_state mantle_24_over
+//		{
+//			both mp_shield_mantle_24_over_idle
+//		}
+//		
+//		weaponclass shield, mantle_state mantle_32_up
+//		{
+//			both mp_shield_mantle_32_up_idle
+//		}
+//		
+//		weaponclass shield, mantle_state mantle_32_over
+//		{
+//			both mp_shield_mantle_32_over_idle
+//		}
+//		
+//		weaponclass shield, mantle_state mantle_40_up
+//		{
+//			both mp_shield_mantle_40_up_idle
+//		}
+//		
+//		weaponclass shield, mantle_state mantle_40_over
+//		{
+//			both mp_shield_mantle_40_over_idle
+//		}
+//		
+//		weaponclass shield, mantle_state mantle_48_up
+//		{
+//			both mp_shield_mantle_48_up_idle
+//		}
+//		
+//		weaponclass shield, mantle_state mantle_48_over
+//		{
+//			both mp_shield_mantle_48_over_idle
+//		}
+//		
+//		weaponclass shield, mantle_state mantle_56_up
+//		{
+//			both mp_shield_mantle_56_up_idle
+//		}
+//		
+//		weaponclass shield, mantle_state mantle_56_over
+//		{
+//			both mp_shield_mantle_56_over_idle
+//		}
+//		
+//		weaponclass shield, mantle_state mantle_64_up
+//		{
+//			both mp_shield_mantle_64_up_idle
+//		}
+//		
+//		weaponclass shield, mantle_state mantle_64_over
+//		{
+//			both mp_shield_mantle_64_over_idle
+//		}
+		
+		playerAnimType combatknife, mantle_state mantle_16_up
+		{
+			both mp_knife_mantle_16_up_idle
+		}
+		
+		playerAnimType combatknife, mantle_state mantle_16_over
+		{
+			both mp_knife_mantle_16_over_idle
+		}
+		
+		playerAnimType combatknife, mantle_state mantle_24_up
+		{
+			both mp_knife_mantle_24_up_idle
+		}
+		
+		playerAnimType combatknife, mantle_state mantle_24_over
+		{
+			both mp_knife_mantle_24_over_idle
+		}
+		
+		playerAnimType combatknife, mantle_state mantle_32_up
+		{
+			both mp_knife_mantle_32_up_idle
+		}
+		
+		playerAnimType combatknife, mantle_state mantle_32_over
+		{
+			both mp_knife_mantle_32_over_idle
+		}
+		
+		playerAnimType combatknife, mantle_state mantle_40_up
+		{
+			both mp_knife_mantle_40_up_idle
+		}
+		
+		playerAnimType combatknife, mantle_state mantle_40_over
+		{
+			both mp_knife_mantle_40_over_idle
+		}
+		
+		playerAnimType combatknife, mantle_state mantle_48_up
+		{
+			both mp_knife_mantle_48_up_idle
+		}
+		
+		playerAnimType combatknife, mantle_state mantle_48_over
+		{
+			both mp_knife_mantle_48_over_idle
+		}
+		
+		playerAnimType combatknife, mantle_state mantle_56_up
+		{
+			both mp_knife_mantle_56_up_idle
+		}
+		
+		playerAnimType combatknife, mantle_state mantle_56_over
+		{
+			both mp_knife_mantle_56_over_idle
+		}
+		
+		playerAnimType combatknife, mantle_state mantle_64_up
+		{
+			both mp_knife_mantle_64_up_idle
+		}
+		
+		playerAnimType combatknife, mantle_state mantle_64_over
+		{
+			both mp_knife_mantle_64_over_idle
+		}
+		
+		mantle_state mantle_16_up
+		{
+			both mp_mantle_16_up_idle
+		}
+		
+		mantle_state mantle_16_over
+		{
+			both mp_mantle_16_over_idle
+		}
+	
+		mantle_state mantle_24_up
+		{
+			both mp_mantle_24_up_idle
+		}
+		
+		mantle_state mantle_24_over
+		{
+			both mp_mantle_24_over_idle
+		}
+		
+		mantle_state mantle_32_up
+		{
+			both mp_mantle_32_up_idle
+		}
+		
+		mantle_state mantle_32_over
+		{
+			both mp_mantle_32_over_idle
+		}
+		
+		mantle_state mantle_40_up
+		{
+			both mp_mantle_40_up_idle
+		}
+		
+		mantle_state mantle_40_over
+		{
+			both mp_mantle_40_over_idle
+		}
+		
+		mantle_state mantle_48_up
+		{
+			both mp_mantle_48_up_idle
+		}
+		
+		mantle_state mantle_48_over
+		{
+			both mp_mantle_48_over_idle
+		}
+		
+		mantle_state mantle_56_up
+		{
+			both mp_mantle_56_up_idle
+		}
+		
+		mantle_state mantle_56_over
+		{
+			both mp_mantle_56_over_idle
+		}
+		
+		mantle_state mantle_64_up
+		{
+			both mp_mantle_64_up_idle
+		}
+		
+		mantle_state mantle_64_over
+		{
+			both mp_mantle_64_over_idle
+		}
+		
+		transitions
+		{
+			moveType idle
+			{
+				ignore
+			}
+			
+			anim_complete
+			{
+				goto idle
+			}
+		}
+	}
+	
+	mantle2run
+	{
+//		weaponclass shield, mantle_state mantle_16_up
+//		{
+//			both mp_shield_mantle_16_up_run
+//		}
+//		
+//		weaponclass shield, mantle_state mantle_16_over
+//		{
+//			both mp_shield_mantle_16_over_run
+//		}
+//	
+//		weaponclass shield, mantle_state mantle_24_up
+//		{
+//			both mp_shield_mantle_24_up_run
+//		}
+//		
+//		weaponclass shield, mantle_state mantle_24_over
+//		{
+//			both mp_shield_mantle_24_over_run
+//		}
+//		
+//		weaponclass shield, mantle_state mantle_32_up
+//		{
+//			both mp_shield_mantle_32_up_run
+//		}
+//		
+//		weaponclass shield, mantle_state mantle_32_over
+//		{
+//			both mp_shield_mantle_32_over_run
+//		}
+//		
+//		weaponclass shield, mantle_state mantle_40_up
+//		{
+//			both mp_shield_mantle_40_up_run
+//		}
+//		
+//		weaponclass shield, mantle_state mantle_40_over
+//		{
+//			both mp_shield_mantle_40_over_run
+//		}
+//		
+//		weaponclass shield, mantle_state mantle_48_up
+//		{
+//			both mp_shield_mantle_48_up_run
+//		}
+//		
+//		weaponclass shield, mantle_state mantle_48_over
+//		{
+//			both mp_shield_mantle_48_over_run
+//		}
+//		
+//		weaponclass shield, mantle_state mantle_56_up
+//		{
+//			both mp_shield_mantle_56_up_run
+//		}
+//		
+//		weaponclass shield, mantle_state mantle_56_over
+//		{
+//			both mp_shield_mantle_56_over_run
+//		}
+//		
+//		weaponclass shield, mantle_state mantle_64_up
+//		{
+//			both mp_shield_mantle_64_up_run
+//		}
+//		
+//		weaponclass shield, mantle_state mantle_64_over
+//		{
+//			both mp_shield_mantle_64_over_run
+//		}
+		
+		playerAnimType combatknife, mantle_state mantle_16_up
+		{
+			both mp_knife_mantle_16_up_run
+		}
+		
+		playerAnimType combatknife, mantle_state mantle_16_over
+		{
+			both mp_knife_mantle_16_over_run
+		}
+
+		playerAnimType combatknife, mantle_state mantle_24_up
+		{
+			both mp_knife_mantle_24_up_run
+		}
+		
+		playerAnimType combatknife, mantle_state mantle_24_over
+		{
+			both mp_knife_mantle_24_over_run
+		}
+
+		playerAnimType combatknife, mantle_state mantle_32_up
+		{
+			both mp_knife_mantle_32_up_run
+		}
+		
+		playerAnimType combatknife, mantle_state mantle_32_over
+		{
+			both mp_knife_mantle_32_over_run
+		}
+		
+		playerAnimType combatknife, mantle_state mantle_40_up
+		{
+			both mp_knife_mantle_40_up_run
+		}
+		
+		playerAnimType combatknife, mantle_state mantle_40_over
+		{
+			both mp_knife_mantle_40_over_run
+		}
+		
+		playerAnimType combatknife, mantle_state mantle_48_up
+		{
+			both mp_knife_mantle_48_up_run
+		}
+		
+		playerAnimType combatknife, mantle_state mantle_48_over
+		{
+			both mp_knife_mantle_48_over_run
+		}
+		
+		playerAnimType combatknife, mantle_state mantle_56_up
+		{
+			both mp_knife_mantle_56_up_run
+		}
+		
+		playerAnimType combatknife, mantle_state mantle_56_over
+		{
+			both mp_knife_mantle_56_over_run
+		}
+		
+		playerAnimType combatknife, mantle_state mantle_64_up
+		{
+			both mp_knife_mantle_64_up_run
+		}
+		
+		playerAnimType combatknife, mantle_state mantle_64_over
+		{
+			both mp_knife_mantle_64_over_run
+		}
+		
+		mantle_state mantle_16_up
+		{
+			both mp_mantle_16_up_run
+		}
+		
+		mantle_state mantle_16_over
+		{
+			both mp_mantle_16_over_run
+		}
+	
+		mantle_state mantle_24_up
+		{
+			both mp_mantle_24_up_run
+		}
+		
+		mantle_state mantle_24_over
+		{
+			both mp_mantle_24_over_run
+		}
+		
+		mantle_state mantle_32_up
+		{
+			both mp_mantle_32_up_run
+		}
+		
+		mantle_state mantle_32_over
+		{
+			both mp_mantle_32_over_run
+		}
+		
+		mantle_state mantle_40_up
+		{
+			both mp_mantle_40_up_run
+		}
+		
+		mantle_state mantle_40_over
+		{
+			both mp_mantle_40_over_run
+		}
+		
+		mantle_state mantle_48_up
+		{
+			both mp_mantle_48_up_run
+		}
+		
+		mantle_state mantle_48_over
+		{
+			both mp_mantle_48_over_run
+		}
+		
+		mantle_state mantle_56_up
+		{
+			both mp_mantle_56_up_run
+		}
+		
+		mantle_state mantle_56_over
+		{
+			both mp_mantle_56_over_run
+		}
+		
+		mantle_state mantle_64_up
+		{
+			both mp_mantle_64_up_run
+		}
+		
+		mantle_state mantle_64_over
+		{
+			both mp_mantle_64_over_run
+		}
+		
+		transitions
+		{
+			moveType run
+			{
+				ignore
+			}
+			
+			anim_complete
+			{
+				goto run
+			}
+		}
+	}
+	
+	mantle
+	{	
+//		weaponclass shield, mantle_state mantle_64_up
+//		{
+//			both mp_shield_mantle_64_up rootmotion blendtime 35
+//		}
+//		weaponclass shield, mantle_state mantle_56_up
+//		{
+//			both mp_shield_mantle_56_up rootmotion blendtime 35
+//		}
+//		weaponclass shield, mantle_state mantle_48_up
+//		{
+//			both mp_shield_mantle_48_up rootmotion blendtime 35
+//		}
+//		weaponclass shield, mantle_state mantle_40_up
+//		{
+//			both mp_shield_mantle_40_up rootmotion blendtime 35
+//		}		
+//		weaponclass shield, mantle_state mantle_32_up
+//		{
+//			both mp_shield_mantle_32_up rootmotion blendtime 35
+//		}
+//		weaponclass shield, mantle_state mantle_24_up
+//		{
+//			both mp_shield_mantle_24_up rootmotion blendtime 35
+//		}
+//		weaponclass shield, mantle_state mantle_16_up
+//		{
+//			both mp_shield_mantle_16_up rootmotion blendtime 35
+//		}
+//		
+//		// over
+//		weaponclass shield, mantle_state mantle_64_over
+//		{
+//			both mp_shield_mantle_64_over rootmotion blendtime 35
+//		}
+//		weaponclass shield, mantle_state mantle_56_over
+//		{
+//			both mp_shield_mantle_56_over rootmotion blendtime 35
+//		}
+//		weaponclass shield, mantle_state mantle_48_over
+//		{
+//			both mp_shield_mantle_48_over rootmotion blendtime 35
+//		}
+//		weaponclass shield, mantle_state mantle_40_over
+//		{
+//			both mp_shield_mantle_40_over rootmotion blendtime 35
+//		}		
+//		weaponclass shield, mantle_state mantle_32_over
+//		{
+//			both mp_shield_mantle_32_over rootmotion blendtime 35
+//		}
+//		weaponclass shield, mantle_state mantle_24_over
+//		{
+//			both mp_shield_mantle_24_over rootmotion blendtime 35
+//		}
+//		weaponclass shield, mantle_state mantle_16_over
+//		{
+//			both mp_shield_mantle_16_over rootmotion blendtime 35
+//		}
+//		
+//		playerAnimType combatknife, mantle_state mantle_64_up
+//		{
+//			both mp_knife_mantle_64_up rootmotion blendtime 35
+//		}
+//		playerAnimType combatknife, mantle_state mantle_56_up
+//		{
+//			both mp_knife_mantle_56_up rootmotion blendtime 35
+//		}
+//		playerAnimType combatknife, mantle_state mantle_48_up
+//		{
+//			both mp_knife_mantle_48_up rootmotion blendtime 35
+//		}
+//		playerAnimType combatknife, mantle_state mantle_40_up
+//		{
+//			both mp_knife_mantle_40_up rootmotion blendtime 35
+//		}		
+//		playerAnimType combatknife, mantle_state mantle_32_up
+//		{
+//			both mp_knife_mantle_32_up rootmotion blendtime 35
+//		}
+//		playerAnimType combatknife, mantle_state mantle_24_up
+//		{
+//			both mp_knife_mantle_24_up rootmotion blendtime 35
+//		}
+//		playerAnimType combatknife, mantle_state mantle_16_up
+//		{
+//			both mp_knife_mantle_16_up rootmotion blendtime 35
+//		}
+//		
+//		playerAnimType combatknife, mantle_state mantle_64_over
+//		{
+//			both mp_knife_mantle_64_over rootmotion blendtime 35
+//		}
+//		playerAnimType combatknife, mantle_state mantle_56_over
+//		{
+//			both mp_knife_mantle_56_over rootmotion blendtime 35
+//		}
+//		playerAnimType combatknife, mantle_state mantle_48_over
+//		{
+//			both mp_knife_mantle_48_over rootmotion blendtime 35
+//		}
+//		playerAnimType combatknife, mantle_state mantle_40_over
+//		{
+//			both mp_knife_mantle_40_over rootmotion blendtime 35
+//		}		
+//		playerAnimType combatknife, mantle_state mantle_32_over
+//		{
+//			both mp_knife_mantle_32_over rootmotion blendtime 35
+//		}
+//		playerAnimType combatknife, mantle_state mantle_24_over
+//		{
+//			both mp_knife_mantle_24_over rootmotion blendtime 35
+//		}
+//		playerAnimType combatknife, mantle_state mantle_16_over
+//		{
+//			both mp_knife_mantle_16_over rootmotion blendtime 35
+//		}
+		
+		//melee weapon mantle up
+		playerAnimType combatknife, mantle_state mantle_64_up
+		{
+			both h1_mp_melee_mantle_up_57
+		}
+		playerAnimType combatknife, mantle_state mantle_56_up
+		{
+			both h1_mp_melee_mantle_up_51
+		}
+		playerAnimType combatknife, mantle_state mantle_48_up
+		{
+			both h1_mp_melee_mantle_up_45
+		}
+		playerAnimType combatknife, mantle_state mantle_40_up
+		{
+			both h1_mp_melee_mantle_up_39
+		}		
+		playerAnimType combatknife, mantle_state mantle_32_up
+		{
+			both h1_mp_melee_mantle_up_33
+		}
+		playerAnimType combatknife, mantle_state mantle_24_up
+		{
+			legs h1_mp_melee_mantle_up_27
+		}
+		playerAnimType combatknife, mantle_state mantle_16_up
+		{
+			legs h1_mp_melee_mantle_up_21
+		}
+		
+		//melee weapon mantle over
+		playerAnimType combatknife, mantle_state mantle_64_over
+		{
+			both h1_mp_melee_mantle_over_57
+		}
+		playerAnimType combatknife, mantle_state mantle_56_over
+		{
+			both h1_mp_melee_mantle_over_51
+		}
+		playerAnimType combatknife, mantle_state mantle_48_over
+		{
+			both h1_mp_melee_mantle_over_45
+		}
+		playerAnimType combatknife, mantle_state mantle_40_over
+		{
+			both h1_mp_melee_mantle_over_39
+		}		
+		playerAnimType combatknife, mantle_state mantle_32_over
+		{
+			both h1_mp_melee_mantle_over_33
+		}
+		playerAnimType combatknife, mantle_state mantle_24_over
+		{
+			legs h1_mp_melee_mantle_over_low
+		}
+		playerAnimType combatknife, mantle_state mantle_16_over
+		{
+			legs h1_mp_melee_mantle_over_low
+		}
+		
+		mantle_state mantle_64_up
+		{
+			both mp_mantle_up_57
+		}
+		mantle_state mantle_56_up
+		{
+			both mp_mantle_up_51
+		}
+		mantle_state mantle_48_up
+		{
+			both mp_mantle_up_45
+		}
+		mantle_state mantle_40_up
+		{
+			both mp_mantle_up_39
+		}		
+		mantle_state mantle_32_up
+		{
+			both mp_mantle_up_33
+		}
+		mantle_state mantle_24_up
+		{
+			legs mp_mantle_up_27
+		}
+		mantle_state mantle_16_up
+		{
+			legs mp_mantle_up_21
+		}
+		
+		// over
+		mantle_state mantle_64_over
+		{
+			both mp_mantle_over_57
+		}
+		mantle_state mantle_56_over
+		{
+			both mp_mantle_over_51
+		}
+		mantle_state mantle_48_over
+		{
+			both mp_mantle_over_45
+		}
+		mantle_state mantle_40_over
+		{
+			both mp_mantle_over_39
+		}		
+		mantle_state mantle_32_over
+		{
+			both mp_mantle_over_33
+		}
+		mantle_state mantle_24_over
+		{
+			legs mp_mantle_over_low
+		}
+		mantle_state mantle_16_over
+		{
+			legs mp_mantle_over_low
+		}
+				
+		transitions
+		{
+			moveType idle
+			{
+				goto mantle2idle
+			}
+			
+			moveType walk, run, sprint
+			{
+				goto mantle2run
+			}
+		}
+	}
+
+	landmed2run sync land2move_group
+	{
+//		weaponclass shield, strafing left
+//		{
+//			both mp_shield_land_med_2_run_l
+//			aim run_exo_shield_L_aims
+//			blendtime 35
+//		}
+//		weaponclass shield, strafing right
+//		{
+//			both mp_shield_land_med_2_run_r
+//			aim run_exo_shield_R_aims
+//			blendtime 35
+//		}
+//		weaponclass shield
+//		{
+//			both mp_shield_land_med_2_run_f
+//			aim run_exo_shield_F_aims
+//			blendtime 35
+//		}
+		playerAnimType any_hold, strafing left
+		{
+			both h1_mp_hold_land_med_2_run_l
+			aim run_hold_L_aims
+		}
+		playerAnimType any_hold, strafing right
+		{
+			both h1_mp_hold_land_med_2_run_r
+			aim run_hold_R_aims
+		}
+		playerAnimType any_hold
+		{
+			both h1_mp_hold_land_med_2_run_f
+			aim run_hold_F_aims
+		}
+		akimbo, strafing left
+		{
+			both mp_akimbo_pistol_land_med_2_run_l
+			aim run_akimbo_L_aims
+			blendtime 35
+		}
+		akimbo, strafing right
+		{
+			both mp_akimbo_pistol_land_med_2_run_r
+			aim run_akimbo_R_aims
+			blendtime 35
+		}
+		akimbo
+		{
+			both mp_akimbo_pistol_land_med_2_run_f
+			aim run_akimbo_F_aims
+			blendtime 35
+		}
+		playerAnimTypePrimary pistol, strafing left
+		{
+			both mp_pistol_land_med_2_run_l
+			aim run_pistol_L_aims
+			blendtime 35
+		}
+		playerAnimTypePrimary pistol, strafing right
+		{
+			both mp_pistol_land_med_2_run_r
+			aim run_pistol_R_aims
+			blendtime 35
+		}
+		playerAnimTypePrimary pistol
+		{
+			both mp_pistol_land_med_2_run_f
+			aim run_pistol_F_aims
+			blendtime 35
+		}
+		playerAnimType combatknife, strafing left
+		{
+			both jug_maniac_land_med_2_run_l
+			aim run_combatknife_L_aims
+			blendtime 35
+		}
+		playerAnimType combatknife, strafing right
+		{
+			both jug_maniac_land_med_2_run_r
+			aim run_combatknife_R_aims
+			blendtime 35
+		}
+		playerAnimType combatknife
+		{
+			both jug_maniac_land_med_2_run_f
+			aim run_combatknife_F_aims
+			blendtime 35
+		}
+		playerAnimType rocketlauncher, strafing left
+		{
+			both mp_rpg_land_med_2_run_l
+			aim run_rocket_L_aims
+			blendtime 35
+		}
+		playerAnimType rocketlauncher, strafing right
+		{
+			both mp_rpg_land_med_2_run_r
+			aim run_rocket_R_aims
+			blendtime 35
+		}
+		playerAnimType rocketlauncher
+		{
+			both mp_rpg_land_med_2_run_f
+			aim run_rocket_F_aims
+			blendtime 35
+		}
+		strafing left
+		{
+			both mp_assault_land_med_2_run_left
+			aim run_rifle_L_aims
+			blendtime 35
+		}
+		strafing right
+		{
+			both mp_assault_land_med_2_run_right
+			aim run_rifle_R_aims
+			blendtime 35
+		}
+		default
+		{
+			both mp_assault_land_med_2_run_forward
+			aim run_rifle_F_aims
+			blendtime 35
+		}
+
+		transitions
+		{
+			moveType run, sprint, landmed
+			{
+				ignore
+			}
+			moveType runbk
+			{
+				goto landmed2runbk
+			}
+			anim_complete
+			{
+				goto run
+			}
+		}
+	}
+
+	landmed2runbk sync land2move_group
+	{
+//		weaponclass shield, strafing left
+//		{
+//			both mp_shield_land_med_2_run_l
+//			aim run_exo_shield_L_aims
+//			blendtime 35
+//		}
+//		weaponclass shield, strafing right
+//		{
+//			both mp_shield_land_med_2_run_r
+//			aim run_exo_shield_R_aims
+//			blendtime 35
+//		}
+//		weaponclass shield
+//		{
+//			both mp_shield_land_med_2_run_b
+//			aim run_exo_shield_F_aims
+//		}
+		playerAnimType any_hold, strafing left
+		{
+			both h1_mp_hold_land_med_2_run_l
+			aim run_hold_L_aims
+		}
+		playerAnimType any_hold, strafing right
+		{
+			both h1_mp_hold_land_med_2_run_r
+			aim run_hold_R_aims
+		}
+		playerAnimType any_hold
+		{
+			both h1_mp_hold_land_med_2_run_b
+			aim run_hold_F_aims
+			blendtime 35
+		}
+		akimbo, strafing left
+		{
+			both mp_akimbo_pistol_land_med_2_run_l
+			aim run_akimbo_L_aims
+			blendtime 35
+		}
+		akimbo, strafing right
+		{
+			both mp_akimbo_pistol_land_med_2_run_r
+			aim run_akimbo_R_aims
+			blendtime 35
+		}
+		akimbo
+		{
+			both mp_akimbo_pistol_land_med_2_run_b
+			aim run_akimbo_F_aims
+			blendtime 35
+		}
+		playerAnimTypePrimary pistol, strafing left
+		{
+			both mp_pistol_land_med_2_run_l
+			aim run_pistol_L_aims
+			blendtime 35
+		}
+		playerAnimTypePrimary pistol, strafing right
+		{
+			both mp_pistol_land_med_2_run_r
+			aim run_pistol_R_aims
+			blendtime 35
+		}
+		playerAnimTypePrimary pistol
+		{
+			both mp_pistol_land_med_2_run_b
+			aim run_pistol_F_aims
+			blendtime 35
+		}
+		playerAnimType combatknife, strafing left
+		{
+			both jug_maniac_land_med_2_run_l
+			aim run_combatknife_L_aims
+			blendtime 35
+		}
+		playerAnimType combatknife, strafing right
+		{
+			both jug_maniac_land_med_2_run_r
+			aim run_combatknife_R_aims
+			blendtime 35
+		}
+		playerAnimType combatknife
+		{
+			both jug_maniac_land_med_2_run_b
+			aim run_combatknife_F_aims
+			blendtime 35
+		}
+		playerAnimType rocketlauncher, strafing left
+		{
+			both mp_rpg_land_med_2_run_l
+			aim run_rocket_L_aims
+			blendtime 35
+		}
+		playerAnimType rocketlauncher, strafing right
+		{
+			both mp_rpg_land_med_2_run_r
+			aim run_rocket_R_aims
+			blendtime 35
+		}
+		playerAnimType rocketlauncher
+		{
+			both mp_rpg_land_med_2_run_b
+			aim run_rocket_F_aims
+			blendtime 35
+		}
+		strafing left
+		{
+			both mp_assault_land_med_2_run_left
+			aim run_rifle_L_aims
+			blendtime 35
+		}
+		strafing right
+		{
+			both mp_assault_land_med_2_run_right
+			aim run_rifle_R_aims
+			blendtime 35
+		}
+		default
+		{
+			both mp_assault_land_med_2_run_back
+			aim run_rifle_F_aims
+			blendtime 35
+		}
+
+		transitions
+		{
+			moveType runbk, landmed
+			{
+				ignore
+			}
+			moveType run, sprint
+			{
+				goto landmed2run
+			}
+			anim_complete
+			{
+				goto runbk
+			}
+		}
+	}
+		
+	landmed
+	{
+//		weaponclass shield
+//		{
+//			both mp_shield_land_med
+//			aim idle_exo_shield_aims
+//			blendtime 35
+//		}
+		playerAnimType any_hold
+		{
+			both mp_hold_standjump_land
+			aim idle_hold_aims
+			blendtime 35
+		}
+		akimbo
+		{
+			both mp_akimbo_pistol_land_med
+			aim idle_akimbo_aims
+			blendtime 35
+		}
+		playerAnimTypePrimary pistol
+		{
+			both mp_pistol_land_med
+			aim idle_pistol_aims
+			blendtime 35
+		}
+		playerAnimType combatknife
+		{
+			both jug_maniac_land_med
+			aim idle_combatknife_aims
+			blendtime 35
+		}
+		playerAnimType rocketlauncher
+		{
+			both mp_rpg_land_med
+			aim idle_rocket_aims
+			blendtime 35
+		}
+		default
+		{
+			both mp_assault_land_med
+			aim idle_rifle_aims
+			blendtime 35
+		}
+
+		transitions
+		{
+			moveType idle
+			{
+				ignore
+			}
+			moveType run, sprint
+			{
+				goto landmed2run
+			}
+			moveType runbk
+			{
+				goto landmed2runbk
+			}
+			anim_complete
+			{
+				goto idle
+			}
+		}
+	}
+
+	slide_move
+	{
+//		weaponclass shield
+//		{
+//			both mp_shield_slide
+//			aim crouch_exo_shield_aims
+//		}
+// 		playerAnimType hold 
+// 		{
+// 			both pb_hold_slide
+//		}
+		playerAnimTypePrimary rocketlauncher
+		{
+			both mp_slide_rpg
+		}
+		akimbo 
+		{
+			both mp_slide_akimbo
+			aim crouch_akimbo_aims
+		}
+		playerAnimTypePrimary pistol
+		{
+			both mp_slide_pistol
+			aim crouch_pistol_aims
+		}
+// 		weaponclass rocketlauncher
+// 		{
+// 			both pb_rpg_slide
+// 		}
+//		ball_carrier
+//		{
+//			both mp_slide_uplink
+//			aim idle_uplink_ball_aim
+//		}
+		playerAnimType combatknife
+		{
+			both mp_slide_jugmaniac
+			aim crouch_combatknife_aims
+		}
+		//weaponclass rifle
+		//{
+		//	both pb_kneeslide
+		//}
+//		weaponclass sniper
+//		{
+//			both pb_kneeslide
+//		}
+		default 
+		{
+			both mp_slide
+			aim crouch_rifle_aims
+		}
+		
+		transitions
+		{
+			moveType walk, run, sprint
+			{
+				goto slide2sprint
+			}
+			moveType idleprone, walkprone, walkpronebk
+			{
+				goto slide2prone
+			}
+			moveType idlecr
+			{
+				goto slide2crouch
+			}
+		}
+	}
+	slide2sprint sync stand2move_group
+	{
+//		ball_carrier
+//		{
+//			both mp_uplink_crouch_2_sprint
+//			aim run_uplink_ball_F_aims
+//			blendtime 35
+//		}
+//		playerAnimTypePrimary riotshield
+//		{
+//			both mp_shield_crouch_2_sprint
+//			aim run_exo_shield_F_aims
+//			blendtime 35
+//		}
+		playerAnimTypePrimary rocketlauncher
+		{
+			both mp_rpg_crouch_idle_2_sprint
+			aim run_rocket_F_aims
+			blendtime 35
+		}
+		playerAnimTypePrimary combatknife
+		{
+			both mp_jug_maniac_crouch_2_sprint
+			aim run_combatknife_F_aims
+			blendtime 35
+		}
+		akimbo
+		{
+			both mp_akimbo_crouch_to_sprint
+			aim run_akimbo_F_aims
+			blendtime 35
+		}
+		playerAnimTypePrimary pistol
+		{
+			both mp_pistol_crouch_to_sprint_1
+			aim run_pistol_F_aims
+			blendtime 35
+		}
+		default
+		{
+			both mp_crouch_idle_to_sprint
+			aim run_rifle_F_aims
+			blendtime 35
+		}
+		
+		transitions
+		{
+			moveType walk, run, sprint, slide_move
+			{
+				ignore
+			}
+			anim_complete
+			{
+				goto sprint
+			}
+		}
+	}
+	slide2prone
+	{
+		akimbo 
+		{
+			both mp_slide_akimbo_2_prone
+			aim prone_akimbo_aims
+			play_at_server_time
+		}
+		playerAnimTypePrimary pistol
+		{
+			both mp_slide_pistol_2_prone
+			aim prone_pistol_aims
+			play_at_server_time
+		}
+		default 
+		{
+			both mp_slide_2_prone
+			aim prone_rifle_aims
+			play_at_server_time
+		}
+		
+		transitions
+		{
+			moveType idleprone, walkprone, walkpronebk, slide_move
+			{
+				ignore
+			}
+			moveType idlecr
+			{
+				goto idleprone2idlecr
+			}
+			moveType idle
+			{
+				goto idleprone2idle
+			}
+			moveType walk, run, sprint
+			{
+				goto prone2run
+			}
+			moveType walkbk, runbk
+			{
+				goto prone2runbk
+			}
+			moveType walkcr, runcr
+			{
+				goto prone2walkcr
+			}
+			moveType walkcrbk, runcrbk
+			{
+				goto prone2walkcrbk
+			}
+			anim_complete
+			{
+				goto idleprone
+			}
+		}
+	}
+	slide2crouch
+	{
+//		weaponclass shield
+//		{
+//			both mp_shield_slide_ease_out
+//			aim crouch_exo_shield_aims
+//		}
+		playerAnimTypePrimary rocketlauncher 
+		{
+			both mp_slide_rpg_2_crouch
+		}
+		akimbo
+		{
+			both mp_slide_akimbo_2_crouch
+			aim crouch_akimbo_F_aims
+		}
+		playerAnimTypePrimary pistol 
+		{
+			both mp_slide_pistol_2_crouch
+			aim crouch_pistol_F_aims
+		}
+		default
+		{
+			both mp_slide_2_crouch
+			aim crouch_rifle_F_aims
+		}
+		
+		transitions
+		{
+			moveType idlecr, slide_move
+			{
+				ignore
+			}
+			moveType runcr, walkcr
+			{
+				goto idlecr2walkcr
+			}
+			moveType runcrbk, walkcrbk
+			{
+				goto idlecr2walkcrbk
+			}
+			moveType run
+			{
+				goto idle2run
+			}
+			moveType walk
+			{
+				goto idle2walk
+			}
+			moveType runbk
+			{
+				goto idle2runbk
+			}
+			moveType walkbk
+			{
+				goto idle2walkbk
+			}
+			moveType sprint
+			{
+				goto idlecr2sprint
+			}
+			moveType idleprone
+			{
+				goto idlecr2idleprone
+			}
+			moveType idle
+			{
+				goto idlecr2idle
+			}
+			anim_complete
+			{
+				goto idlecr
+			}
+		}
+	}
+}

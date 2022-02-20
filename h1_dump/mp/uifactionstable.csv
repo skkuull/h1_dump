@@ -1,0 +1,5 @@
+0,allies,urban,MPUI_SAS,h1_faction_sas,h1_faction_sas_soft,
+1,allies,woodland,MPUI_MARINES_WOODLAND,h1_faction_sas,h1_faction_sas_soft,
+2,allies,desert,MPUI_MARINES_DESERT,h1_faction_marines,h1_faction_marines_soft,
+3,axis,woodland,MPUI_SPETSNAZ,h1_faction_russian,h1_faction_russian_soft,
+4,axis,desert,MPUI_OPFOR,h1_faction_opfor,h1_faction_opfor_soft,

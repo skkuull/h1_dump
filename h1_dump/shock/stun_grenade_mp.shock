@@ -1,0 +1,37 @@
+bg_shock_screenType "flashed"
+bg_shock_screenBlurBlendTime "0.4"
+bg_shock_screenBlurBlendFadeTime "1.0"
+bg_shock_screenFlashWhiteFadeTime "100"
+bg_shock_screenFlashShotFadeTime "1.0"
+
+bg_shock_viewKickPeriod ".75"
+bg_shock_viewKickRadius ".05"
+bg_shock_viewKickFadeTime "3"
+
+bg_shock_sound "1"
+bg_shock_soundLoop "null_loop"
+bg_shock_soundLoopSilent "null_loop"
+bg_shock_soundEnd "null"
+bg_shock_soundEndAbort "null"
+
+bg_shock_soundFadeInTime ".25"
+bg_shock_soundFadeOutTime "2.0"
+bg_shock_soundModEndDelay "1.5"
+bg_shock_soundLoopFadeTime "2"
+bg_shock_soundLoopEndDelay "2.0"
+
+bg_shock_soundRoomType "underwater"
+bg_shock_soundDryLevel "0.6"
+bg_shock_soundWetLevel "0.8"
+
+
+bg_shock_soundSubmix ""
+
+
+bg_shock_lookControl "1"
+bg_shock_lookControl_maxpitchspeed "75"
+bg_shock_lookControl_maxyawspeed "75"
+bg_shock_lookControl_mousesensitivityscale "0.1"
+bg_shock_lookControl_fadeTime "2"
+
+bg_shock_movement "1"

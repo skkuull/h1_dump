@@ -1,0 +1,4 @@
+0,ch_kills,UPGRADE_KILLS_NAME,UPGRADE_KILLS,UPGRADE_KILLS_COMPLETE,UPGRADE_KILLS_NEEDED,ui_pm_tracker_kills,ui_pm_p_kills,ui_pm_g_kills,ui_pm_t_kills,50,50,50,50,100,100,100,100,100,100,150,150,150,150,200,
+1,ch_headshots,UPGRADE_HEADSHOTS_NAME,UPGRADE_HEADSHOTS,UPGRADE_HEADSHOTS_COMPLETE,UPGRADE_HEADSHOTS_NEEDED,ui_pm_tracker_headshots,ui_pm_p_headshots,ui_pm_g_headshots,ui_pm_t_headshots,15,15,15,15,15,25,,,,,,,,,,
+2,ch_frag_kills,UPGRADE_FRAG_KILLS_NAME,UPGRADE_FRAG_KILLS,UPGRADE_FRAG_COMPLETE,UPGRADE_GRENADES_NEEDED,ui_pm_tracker_grenades,ui_pm_p_kills_grenades,ui_pm_g_kills_grenades,ui_pm_t_kills_grenades,40,40,40,40,40,40,40,40,,,,,,,,
+3,ch_intel,UPGRADE_INTEL_NAME,UPGRADE_INTEL,UPGRADE_INTEL_COMPLETE,UPGRADE_INTEL_NEEDED,ui_pm_tracker_intel,ui_pm_p_intel,ui_pm_g_intel,ui_pm_t_intel,5,5,10,25,,,,,,,,,,,,

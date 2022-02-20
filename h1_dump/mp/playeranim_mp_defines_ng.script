@@ -1,0 +1,200 @@
+//==========================================================================
+//
+// Character Animation Script     M U L T I P L A Y E R
+//
+//==========================================================================
+
+// playerAnimType:
+// Set in "Player Anim Type" in the weapon gdt file.
+// Full list specified in playeranimtypes.txt.
+// Asset manager choices specified in weapon gdf files.
+
+//==========================================================================
+// TRANSITION_MOVETYPES
+//
+// Transitional moveType states
+
+TRANSITION_MOVETYPES
+
+idle2walk
+idle2walkbk
+idle2run
+idle2runbk
+idle2sprint
+landmed2run
+landmed2runbk
+run2idle
+runbk2idle
+walk2idle
+walkbk2idle
+idlecr2walkcr
+idlecr2walkcrbk
+idlecr2sprint
+walkcr2idlecr
+walkcrbk2idlecr
+walkcr2sprint
+idle2idlecr
+idlecr2idle
+idleprone2idlecr
+idlecr2idleprone
+idleprone2idle
+mantle2idle
+mantle2run
+walkcr2prone
+walkcrbk2prone
+prone2run
+prone2runbk
+prone2walkcr
+prone2walkcrbk
+idleprone2walkprone
+idleprone2walkpronebk
+slide2sprint
+slide2crouch
+slide2prone
+
+//==========================================================================
+// DEFINES
+//
+// These can be used to simplify the scripting, by defining replacement strings
+
+DEFINES
+
+// weaponclasses
+set weaponclass autofire = mg AND smg
+
+// movetypes
+set movetype moving = walk AND walkcr AND walkcrbk AND walkbk AND run AND runbk AND runcr AND runcrbk AND walkprone AND walkpronebk AND idle2walk AND idle2walkbk AND idle2run AND idle2runbk AND idle2sprint AND idlecr2walkcr AND idlecr2walkcrbk AND idlecr2sprint AND mantle2run AND walkcr2prone AND walkcrbk2prone AND walkcr2sprint AND prone2run AND prone2runbk AND prone2walkcr AND prone2walkcrbk AND idleprone2walkprone AND idleprone2walkpronebk AND slide_move AND slide2sprint AND slide2crouch AND slide2prone AND landmed2run AND landmed2runbk
+set movetype crouching = idlecr AND runcr AND runcrbk AND walkcr AND walkcrbk AND idlecr2walkcr AND idlecr2walkcrbk AND walkcr2idlecr AND walkcrbk2idlecr AND idle2idlecr AND idleprone2idlecr AND prone2walkcr AND prone2walkcrbk
+set movetype prone = idleprone AND walkprone AND walkpronebk AND idlecr2idleprone AND walkcr2prone AND walkcrbk2prone AND idleprone2walkprone AND idleprone2walkpronebk AND slide2prone
+set movetype laststand = idlelaststand AND crawllaststand AND crawllaststandbk
+
+// inflictor_movetypes
+set inflictor_movetype moving = walk AND walkcr AND walkcrbk AND walkbk AND run AND runbk AND runcr AND runcrbk AND walkprone AND walkpronebk
+set inflictor_movetype crouching = idlecr AND runcr AND runcrbk AND walkcr AND walkcrbk
+set inflictor_movetype prone = idleprone AND walkprone AND walkpronebk
+set inflictor_movetype laststand = idlelaststand AND crawllaststand AND crawllaststandbk
+
+// playeranimtypes
+set playerAnimType any_hold = hold AND trophysystem
+
+
+//==========================================================================
+// SYNC_GROUPS
+//
+// Transitional anims with the same sync group have their timers synced if they transition from one another
+
+SYNC_GROUPS
+
+stand2move_group
+prone2stand_group
+crouch2stand_group
+stand2crouch_group
+crouch2prone_group
+preparegrenade_group
+prepareknife_group
+land2move_group
+
+//==========================================================================
+// AIM_SETS
+//
+// These are sets of additive animations blended in to adjust the pose for
+// aiming
+
+AIM_SETS
+
+aimset idle_rifle_aims 			= mp_stand_aim_1 mp_stand_aim_2 mp_stand_aim_3 mp_stand_aim_4 mp_stand_aim_6 mp_stand_aim_7 mp_stand_aim_8 mp_stand_aim_9
+aimset idle_pistol_aims			= mp_pistol_stand_aim_1 mp_pistol_stand_aim_2 mp_pistol_stand_aim_3 mp_pistol_stand_aim_4 mp_pistol_stand_aim_6 mp_pistol_stand_aim_7 mp_pistol_stand_aim_8 mp_pistol_stand_aim_9
+aimset idle_akimbo_aims			= mp_akimbo_stand_aim_1 mp_akimbo_stand_aim_2 mp_akimbo_stand_aim_3 mp_akimbo_stand_aim_4 mp_akimbo_stand_aim_6 mp_akimbo_stand_aim_7 mp_akimbo_stand_aim_8 mp_akimbo_stand_aim_9
+aimset idle_combatknife_aims 	= mp_jug_maniac_aim_1 mp_jug_maniac_aim_2 mp_jug_maniac_aim_3 mp_jug_maniac_aim_4 mp_jug_maniac_aim_6 mp_jug_maniac_aim_7 mp_jug_maniac_aim_8 mp_jug_maniac_aim_9
+//aimset idle_uplink_ball_aim	= mp_uplink_ball_stand_aim_1 mp_uplink_ball_stand_aim_2 mp_uplink_ball_stand_aim_3 mp_uplink_ball_stand_aim_4 mp_uplink_ball_stand_aim_6 mp_uplink_ball_stand_aim_7 mp_uplink_ball_stand_aim_8 mp_uplink_ball_stand_aim_9
+aimset idle_rocket_aims			= mp_rpg_aim_1 mp_rpg_aim_2 mp_rpg_aim_3 mp_rpg_aim_4 mp_rpg_aim_6 mp_rpg_aim_7 mp_rpg_aim_8 mp_rpg_aim_9
+aimset idle_hold_aims			= mp_hold_stand_aim_1 mp_hold_stand_aim_2 mp_hold_stand_aim_3 mp_hold_stand_aim_4 mp_hold_stand_aim_6 mp_hold_stand_aim_7 mp_hold_stand_aim_8 mp_hold_stand_aim_9
+//aimset idle_exo_shield_aims	= mp_exo_shield_stand_aim_1 mp_exo_shield_stand_aim_2 mp_exo_shield_stand_aim_3 mp_exo_shield_stand_aim_4 mp_exo_shield_stand_aim_6 mp_exo_shield_stand_aim_7 mp_exo_shield_stand_aim_8 mp_exo_shield_stand_aim_9
+aimset idle_ads_rocket_aims		= mp_rpg_ads_aim_1 mp_rpg_ads_aim_2 mp_rpg_ads_aim_3 mp_rpg_ads_aim_4 mp_rpg_ads_aim_6 mp_rpg_ads_aim_7 mp_rpg_ads_aim_8 mp_rpg_ads_aim_9
+//aimset idle_minigun_aims		= mp_mini_stand_aim_1 mp_mini_stand_aim_2 mp_mini_stand_aim_3 mp_mini_stand_aim_4 mp_mini_stand_aim_6 mp_mini_stand_aim_7 mp_mini_stand_aim_8 mp_mini_stand_aim_9
+aimset idle_rifle_gren_aims		= h1_mp_stand_grenade_throw_aim_1 h1_mp_stand_grenade_throw_aim_2 h1_mp_stand_grenade_throw_aim_3 h1_mp_stand_grenade_throw_aim_4 h1_mp_stand_grenade_throw_aim_6 h1_mp_stand_grenade_throw_aim_7 h1_mp_stand_grenade_throw_aim_8 h1_mp_stand_grenade_throw_aim_9
+aimset idle_pistol_gren_aims	= h1_mp_pistol_stand_grenade_aim_1 h1_mp_pistol_stand_grenade_aim_2 h1_mp_pistol_stand_grenade_aim_3 h1_mp_pistol_stand_grenade_aim_4 h1_mp_pistol_stand_grenade_aim_6 h1_mp_pistol_stand_grenade_aim_7 h1_mp_pistol_stand_grenade_aim_8 h1_mp_pistol_stand_grenade_aim_9
+aimset idle_rpg_gren_aims		= h1_mp_rpg_stand_grenade_aim_1 h1_mp_rpg_stand_grenade_aim_2 h1_mp_rpg_stand_grenade_aim_3 h1_mp_rpg_stand_grenade_aim_4 h1_mp_rpg_stand_grenade_aim_6 h1_mp_rpg_stand_grenade_aim_7 h1_mp_rpg_stand_grenade_aim_8 h1_mp_rpg_stand_grenade_aim_9
+aimset idle_hold_gren_aims		= h1_mp_hold_grenade_aim_1 h1_mp_hold_grenade_aim_2 h1_mp_hold_grenade_aim_3 h1_mp_hold_grenade_aim_4 h1_mp_hold_grenade_aim_6 h1_mp_hold_grenade_aim_7 h1_mp_hold_grenade_aim_8 h1_mp_hold_grenade_aim_9
+
+aimset crouch_rifle_aims 		= mp_crouch_aim_1 mp_crouch_aim_2 mp_crouch_aim_3 mp_crouch_aim_4 mp_crouch_aim_6 mp_crouch_aim_7 mp_crouch_aim_8 mp_crouch_aim_9
+aimset crouch_pistol_aims		= mp_pistol_crouch_aim_1 mp_pistol_crouch_aim_2 mp_pistol_crouch_aim_3 mp_pistol_crouch_aim_4 mp_pistol_crouch_aim_6 mp_pistol_crouch_aim_7 mp_pistol_crouch_aim_8 mp_pistol_crouch_aim_9
+aimset crouch_akimbo_aims		= mp_akimbo_crouch_aim_1 mp_akimbo_crouch_aim_2 mp_akimbo_crouch_aim_3 mp_akimbo_crouch_aim_4 mp_akimbo_crouch_aim_6 mp_akimbo_crouch_aim_7 mp_akimbo_crouch_aim_8 mp_akimbo_crouch_aim_9
+aimset crouch_combatknife_aims 	= mp_jug_maniac_crouch_aim_1 mp_jug_maniac_crouch_aim_2 mp_jug_maniac_crouch_aim_3 mp_jug_maniac_crouch_aim_4 mp_jug_maniac_crouch_aim_6 mp_jug_maniac_crouch_aim_7 mp_jug_maniac_crouch_aim_8 mp_jug_maniac_crouch_aim_9
+aimset crouch_rocket_aims		= mp_rpg_crouch_aim_1 mp_rpg_crouch_aim_2 mp_rpg_crouch_aim_3 mp_rpg_crouch_aim_4 mp_rpg_crouch_aim_6 mp_rpg_crouch_aim_7 mp_rpg_crouch_aim_8 mp_rpg_crouch_aim_9
+aimset crouch_hold_aims			= mp_hold_crouch_aim_1 mp_hold_crouch_aim_2 mp_hold_crouch_aim_3 mp_hold_crouch_aim_4 mp_hold_crouch_aim_6 mp_hold_crouch_aim_7 mp_hold_crouch_aim_8 mp_hold_crouch_aim_9
+//aimset crouch_exo_shield_aims	= mp_exo_shield_crouch_aim_1 mp_exo_shield_crouch_aim_2 mp_exo_shield_crouch_aim_3 mp_exo_shield_crouch_aim_4 mp_exo_shield_crouch_aim_6 mp_exo_shield_crouch_aim_7 mp_exo_shield_crouch_aim_8 mp_exo_shield_crouch_aim_9
+aimset crouch_ads_rocket_aims	= mp_rpg_crouch_ads_aim_1 mp_rpg_crouch_ads_aim_2 mp_rpg_crouch_ads_aim_3 mp_rpg_crouch_ads_aim_4 mp_rpg_crouch_ads_aim_6 mp_rpg_crouch_ads_aim_7 mp_rpg_crouch_ads_aim_8 mp_rpg_crouch_ads_aim_9
+//aimset crouch_minigun_aims	= mp_mini_crouch_aim_1 mp_mini_crouch_aim_2 mp_mini_crouch_aim_3 mp_mini_crouch_aim_4 mp_mini_crouch_aim_6 mp_mini_crouch_aim_7 mp_mini_crouch_aim_8 mp_mini_crouch_aim_9
+aimset crouch_rifle_gren_aims	= h1_mp_crouch_grenade_throw_aim_1 h1_mp_crouch_grenade_throw_aim_2 h1_mp_crouch_grenade_throw_aim_3 h1_mp_crouch_grenade_throw_aim_4 h1_mp_crouch_grenade_throw_aim_6 h1_mp_crouch_grenade_throw_aim_7 h1_mp_crouch_grenade_throw_aim_8 h1_mp_crouch_grenade_throw_aim_9
+aimset crouch_pistol_gren_aims	= h1_mp_pistol_crouch_grenade_aim_1 h1_mp_pistol_crouch_grenade_aim_2 h1_mp_pistol_crouch_grenade_aim_3 h1_mp_pistol_crouch_grenade_aim_4 h1_mp_pistol_crouch_grenade_aim_6 h1_mp_pistol_crouch_grenade_aim_7 h1_mp_pistol_crouch_grenade_aim_8 h1_mp_pistol_crouch_grenade_aim_9
+aimset crouch_rpg_gren_aims		= h1_mp_rpg_crouch_grenade_aim_1 h1_mp_rpg_crouch_grenade_aim_2 h1_mp_rpg_crouch_grenade_aim_3 h1_mp_rpg_crouch_grenade_aim_4 h1_mp_rpg_crouch_grenade_aim_6 h1_mp_rpg_crouch_grenade_aim_7 h1_mp_rpg_crouch_grenade_aim_8 h1_mp_rpg_crouch_grenade_aim_9
+aimset crouch_hold_gren_aims	= h1_mp_crouch_hold_grenade_aim_1 h1_mp_crouch_hold_grenade_aim_2 h1_mp_crouch_hold_grenade_aim_3 h1_mp_crouch_hold_grenade_aim_4 h1_mp_crouch_hold_grenade_aim_6 h1_mp_crouch_hold_grenade_aim_7 h1_mp_crouch_hold_grenade_aim_8 h1_mp_crouch_hold_grenade_aim_9
+
+aimset prone_rifle_aims 		= mp_prone_aim_1 mp_prone_aim_2 mp_prone_aim_3 mp_prone_aim_4 mp_prone_aim_6 mp_prone_aim_7 mp_prone_aim_8 mp_prone_aim_9
+aimset prone_pistol_aims		= mp_pistol_prone_aim_1 mp_pistol_prone_aim_2 mp_pistol_prone_aim_3 mp_pistol_prone_aim_4 mp_pistol_prone_aim_6 mp_pistol_prone_aim_7 mp_pistol_prone_aim_8 mp_pistol_prone_aim_9
+aimset prone_akimbo_aims		= mp_akimbo_prone_aim_1 mp_akimbo_prone_aim_2 mp_akimbo_prone_aim_3 mp_akimbo_prone_aim_4 mp_akimbo_prone_aim_6 mp_akimbo_prone_aim_7 mp_akimbo_prone_aim_8 mp_akimbo_prone_aim_9
+aimset prone_combatknife_aims 	= mp_jug_maniac_prone_aim_1 mp_jug_maniac_prone_aim_2 mp_jug_maniac_prone_aim_3 mp_jug_maniac_prone_aim_4 mp_jug_maniac_prone_aim_6 mp_jug_maniac_prone_aim_7 mp_jug_maniac_prone_aim_8 mp_jug_maniac_prone_aim_9
+aimset prone_rocket_aims		= mp_rpg_prone_aim_1 mp_rpg_prone_aim_2 mp_rpg_prone_aim_3 mp_rpg_prone_aim_4 mp_rpg_prone_aim_6 mp_rpg_prone_aim_7 mp_rpg_prone_aim_8 mp_rpg_prone_aim_9
+aimset prone_hold_aims			= mp_hold_prone_aim_1 mp_hold_prone_aim_2 mp_hold_prone_aim_3 mp_hold_prone_aim_4 mp_hold_prone_aim_6 mp_hold_prone_aim_7 mp_hold_prone_aim_8 mp_hold_prone_aim_9
+aimset laststand_aims			= h1_mp_laststand_aim_1 h1_mp_laststand_aim_2 h1_mp_laststand_aim_3 h1_mp_laststand_aim_4 h1_mp_laststand_aim_6 h1_mp_laststand_aim_7 h1_mp_laststand_aim_8 h1_mp_laststand_aim_9
+aimset prone_pistol_gren_aims	= h1_mp_pistol_prone_grenade_aim_1 h1_mp_pistol_prone_grenade_aim_2 h1_mp_pistol_prone_grenade_aim_3 h1_mp_pistol_prone_grenade_aim_4 h1_mp_pistol_prone_grenade_aim_6 h1_mp_pistol_prone_grenade_aim_7 h1_mp_pistol_prone_grenade_aim_8 h1_mp_pistol_prone_grenade_aim_9
+aimset prone_hold_gren_aims		= h1_mp_prone_hold_grenade_aim_1 h1_mp_prone_hold_grenade_aim_2 h1_mp_prone_hold_grenade_aim_3 h1_mp_prone_hold_grenade_aim_4 h1_mp_prone_hold_grenade_aim_6 h1_mp_prone_hold_grenade_aim_7 h1_mp_prone_hold_grenade_aim_8 h1_mp_prone_hold_grenade_aim_9
+
+aimset run_rifle_F_aims 		= mp_run_assault_aim_1 mp_run_assault_aim_2 mp_run_assault_aim_3 mp_run_assault_aim_4 mp_run_assault_aim_6 mp_run_assault_aim_7 mp_run_assault_aim_8 mp_run_assault_aim_9
+aimset run_rifle_L_aims 		= mp_run_assault_L_aim_1 mp_run_assault_L_aim_2 mp_run_assault_L_aim_3 mp_run_assault_L_aim_4 mp_run_assault_L_aim_6 mp_run_assault_L_aim_7 mp_run_assault_L_aim_8 mp_run_assault_L_aim_9
+aimset run_rifle_R_aims 		= mp_run_assault_R_aim_1 mp_run_assault_R_aim_2 mp_run_assault_R_aim_3 mp_run_assault_R_aim_4 mp_run_assault_R_aim_6 mp_run_assault_R_aim_7 mp_run_assault_R_aim_8 mp_run_assault_R_aim_9
+aimset run_pistol_F_aims		= mp_pistol_stand_run_f_aim_1 mp_pistol_stand_run_f_aim_2 mp_pistol_stand_run_f_aim_3 mp_pistol_stand_run_f_aim_4 mp_pistol_stand_run_f_aim_6 mp_pistol_stand_run_f_aim_7 mp_pistol_stand_run_f_aim_8 mp_pistol_stand_run_f_aim_9
+aimset run_pistol_L_aims		= mp_pistol_stand_run_l_aim_1 mp_pistol_stand_run_l_aim_2 mp_pistol_stand_run_l_aim_3 mp_pistol_stand_run_l_aim_4 mp_pistol_stand_run_l_aim_6 mp_pistol_stand_run_l_aim_7 mp_pistol_stand_run_l_aim_8 mp_pistol_stand_run_l_aim_9
+aimset run_pistol_R_aims		= mp_pistol_stand_run_r_aim_1 mp_pistol_stand_run_r_aim_2 mp_pistol_stand_run_r_aim_3 mp_pistol_stand_run_r_aim_4 mp_pistol_stand_run_r_aim_6 mp_pistol_stand_run_r_aim_7 mp_pistol_stand_run_r_aim_8 mp_pistol_stand_run_r_aim_9
+aimset run_akimbo_F_aims		= mp_akimbo_stand_run_f_aim_1 mp_akimbo_stand_run_f_aim_2 mp_akimbo_stand_run_f_aim_3 mp_akimbo_stand_run_f_aim_4 mp_akimbo_stand_run_f_aim_6 mp_akimbo_stand_run_f_aim_7 mp_akimbo_stand_run_f_aim_8 mp_akimbo_stand_run_f_aim_9
+aimset run_akimbo_L_aims		= mp_akimbo_stand_run_l_aim_1 mp_akimbo_stand_run_l_aim_2 mp_akimbo_stand_run_l_aim_3 mp_akimbo_stand_run_l_aim_4 mp_akimbo_stand_run_l_aim_6 mp_akimbo_stand_run_l_aim_7 mp_akimbo_stand_run_l_aim_8 mp_akimbo_stand_run_l_aim_9
+aimset run_akimbo_R_aims		= mp_akimbo_stand_run_r_aim_1 mp_akimbo_stand_run_r_aim_2 mp_akimbo_stand_run_r_aim_3 mp_akimbo_stand_run_r_aim_4 mp_akimbo_stand_run_r_aim_6 mp_akimbo_stand_run_r_aim_7 mp_akimbo_stand_run_r_aim_8 mp_akimbo_stand_run_r_aim_9
+//aimset run_uplink_ball_F_aims	= mp_uplink_ball_run_f_aim_1 mp_uplink_ball_run_f_aim_2 mp_uplink_ball_run_f_aim_3 mp_uplink_ball_run_f_aim_4 mp_uplink_ball_run_f_aim_6 mp_uplink_ball_run_f_aim_7 mp_uplink_ball_run_f_aim_8 mp_uplink_ball_run_f_aim_9
+//aimset run_uplink_ball_L_aims	= mp_uplink_ball_run_l_aim_1 mp_uplink_ball_run_l_aim_2 mp_uplink_ball_run_l_aim_3 mp_uplink_ball_run_l_aim_4 mp_uplink_ball_run_l_aim_6 mp_uplink_ball_run_l_aim_7 mp_uplink_ball_run_l_aim_8 mp_uplink_ball_run_l_aim_9
+//aimset run_uplink_ball_R_aims	= mp_uplink_ball_run_r_aim_1 mp_uplink_ball_run_r_aim_2 mp_uplink_ball_run_r_aim_3 mp_uplink_ball_run_r_aim_4 mp_uplink_ball_run_r_aim_6 mp_uplink_ball_run_r_aim_7 mp_uplink_ball_run_r_aim_8 mp_uplink_ball_run_r_aim_9
+aimset run_combatknife_F_aims 	= mp_jug_maniac_run_f_aim_1 mp_jug_maniac_run_f_aim_2 mp_jug_maniac_run_f_aim_3 mp_jug_maniac_run_f_aim_4 mp_jug_maniac_run_f_aim_6 mp_jug_maniac_run_f_aim_7 mp_jug_maniac_run_f_aim_8 mp_jug_maniac_run_f_aim_9
+aimset run_combatknife_L_aims 	= mp_jug_maniac_run_l_aim_1 mp_jug_maniac_run_l_aim_2 mp_jug_maniac_run_l_aim_3 mp_jug_maniac_run_l_aim_4 mp_jug_maniac_run_l_aim_6 mp_jug_maniac_run_l_aim_7 mp_jug_maniac_run_l_aim_8 mp_jug_maniac_run_l_aim_9
+aimset run_combatknife_R_aims 	= mp_jug_maniac_run_r_aim_1 mp_jug_maniac_run_r_aim_2 mp_jug_maniac_run_r_aim_3 mp_jug_maniac_run_r_aim_4 mp_jug_maniac_run_r_aim_6 mp_jug_maniac_run_r_aim_7 mp_jug_maniac_run_r_aim_8 mp_jug_maniac_run_r_aim_9
+aimset run_rocket_F_aims		= mp_rpg_run_f_aim_1 mp_rpg_run_f_aim_2 mp_rpg_run_f_aim_3 mp_rpg_run_f_aim_4 mp_rpg_run_f_aim_6 mp_rpg_run_f_aim_7 mp_rpg_run_f_aim_8 mp_rpg_run_f_aim_9
+aimset run_rocket_L_aims		= mp_rpg_run_l_aim_1 mp_rpg_run_l_aim_2 mp_rpg_run_l_aim_3 mp_rpg_run_l_aim_4 mp_rpg_run_l_aim_6 mp_rpg_run_l_aim_7 mp_rpg_run_l_aim_8 mp_rpg_run_l_aim_9
+aimset run_rocket_R_aims		= mp_rpg_run_r_aim_1 mp_rpg_run_r_aim_2 mp_rpg_run_r_aim_3 mp_rpg_run_r_aim_4 mp_rpg_run_r_aim_6 mp_rpg_run_r_aim_7 mp_rpg_run_r_aim_8 mp_rpg_run_r_aim_9
+//aimset run_exo_shield_F_aims	= mp_exo_shield_run_assault_aim_1 mp_exo_shield_run_assault_aim_2 mp_exo_shield_run_assault_aim_3 mp_exo_shield_run_assault_aim_4 mp_exo_shield_run_assault_aim_6 mp_exo_shield_run_assault_aim_7 mp_exo_shield_run_assault_aim_8 mp_exo_shield_run_assault_aim_9
+//aimset run_exo_shield_L_aims	= mp_exo_shield_run_assault_l_aim_1 mp_exo_shield_run_assault_l_aim_2 mp_exo_shield_run_assault_l_aim_3 mp_exo_shield_run_assault_l_aim_4 mp_exo_shield_run_assault_l_aim_6 mp_exo_shield_run_assault_l_aim_7 mp_exo_shield_run_assault_l_aim_8 mp_exo_shield_run_assault_l_aim_9
+//aimset run_exo_shield_R_aims	= mp_exo_shield_run_assault_r_aim_1 mp_exo_shield_run_assault_r_aim_2 mp_exo_shield_run_assault_r_aim_3 mp_exo_shield_run_assault_r_aim_4 mp_exo_shield_run_assault_r_aim_6 mp_exo_shield_run_assault_r_aim_7 mp_exo_shield_run_assault_r_aim_8 mp_exo_shield_run_assault_r_aim_9
+aimset run_hold_F_aims			= h1_mp_hold_run_aim_1 h1_mp_hold_run_aim_2 h1_mp_hold_run_aim_3 h1_mp_hold_run_aim_4 h1_mp_hold_run_aim_6 h1_mp_hold_run_aim_7 h1_mp_hold_run_aim_8 h1_mp_hold_run_aim_9
+aimset run_hold_L_aims			= h1_mp_hold_run_l_aim_1 h1_mp_hold_run_l_aim_2 h1_mp_hold_run_l_aim_3 h1_mp_hold_run_l_aim_4 h1_mp_hold_run_l_aim_6 h1_mp_hold_run_l_aim_7 h1_mp_hold_run_l_aim_8 h1_mp_hold_run_l_aim_9
+aimset run_hold_R_aims			= h1_mp_hold_run_r_aim_1 h1_mp_hold_run_r_aim_2 h1_mp_hold_run_r_aim_3 h1_mp_hold_run_r_aim_4 h1_mp_hold_run_r_aim_6 h1_mp_hold_run_r_aim_7 h1_mp_hold_run_r_aim_8 h1_mp_hold_run_r_aim_9
+
+aimset crouch_rifle_F_aims 		= mp_run_assault_aim_1 mp_run_assault_aim_2 mp_run_assault_aim_3 mp_run_assault_aim_4 mp_run_assault_aim_6 mp_run_assault_aim_7 mp_run_assault_aim_8 mp_run_assault_aim_9
+aimset crouch_rifle_L_aims 		= mp_crouch_l_aim_1 mp_crouch_l_aim_2 mp_crouch_l_aim_3 mp_crouch_l_aim_4 mp_crouch_l_aim_6 mp_crouch_l_aim_7 mp_crouch_l_aim_8 mp_crouch_l_aim_9
+aimset crouch_rifle_R_aims 		= mp_crouch_r_aim_1 mp_crouch_r_aim_2 mp_crouch_r_aim_3 mp_crouch_r_aim_4 mp_crouch_r_aim_6 mp_crouch_r_aim_7 mp_crouch_r_aim_8 mp_crouch_r_aim_9
+aimset crouch_pistol_F_aims		= mp_pistol_crouch_walk_f_aim_1 mp_pistol_crouch_walk_f_aim_2 mp_pistol_crouch_walk_f_aim_3 mp_pistol_crouch_walk_f_aim_4 mp_pistol_crouch_walk_f_aim_6 mp_pistol_crouch_walk_f_aim_7 mp_pistol_crouch_walk_f_aim_8 mp_pistol_crouch_walk_f_aim_9
+aimset crouch_pistol_L_aims		= mp_pistol_crouch_walk_l_aim_1 mp_pistol_crouch_walk_l_aim_2 mp_pistol_crouch_walk_l_aim_3 mp_pistol_crouch_walk_l_aim_4 mp_pistol_crouch_walk_l_aim_6 mp_pistol_crouch_walk_l_aim_7 mp_pistol_crouch_walk_l_aim_8 mp_pistol_crouch_walk_l_aim_9
+aimset crouch_pistol_R_aims		= mp_pistol_crouch_walk_r_aim_1 mp_pistol_crouch_walk_r_aim_2 mp_pistol_crouch_walk_r_aim_3 mp_pistol_crouch_walk_r_aim_4 mp_pistol_crouch_walk_r_aim_6 mp_pistol_crouch_walk_r_aim_7 mp_pistol_crouch_walk_r_aim_8 mp_pistol_crouch_walk_r_aim_9
+aimset crouch_akimbo_F_aims		= mp_akimbo_crouch_walk_f_aim_1 mp_akimbo_crouch_walk_f_aim_2 mp_akimbo_crouch_walk_f_aim_3 mp_akimbo_crouch_walk_f_aim_4 mp_akimbo_crouch_walk_f_aim_6 mp_akimbo_crouch_walk_f_aim_7 mp_akimbo_crouch_walk_f_aim_8 mp_akimbo_crouch_walk_f_aim_9
+aimset crouch_akimbo_L_aims		= mp_akimbo_crouch_walk_l_aim_1 mp_akimbo_crouch_walk_l_aim_2 mp_akimbo_crouch_walk_l_aim_3 mp_akimbo_crouch_walk_l_aim_4 mp_akimbo_crouch_walk_l_aim_6 mp_akimbo_crouch_walk_l_aim_7 mp_akimbo_crouch_walk_l_aim_8 mp_akimbo_crouch_walk_l_aim_9
+aimset crouch_akimbo_R_aims		= mp_akimbo_crouch_walk_r_aim_1 mp_akimbo_crouch_walk_r_aim_2 mp_akimbo_crouch_walk_r_aim_3 mp_akimbo_crouch_walk_r_aim_4 mp_akimbo_crouch_walk_r_aim_6 mp_akimbo_crouch_walk_r_aim_7 mp_akimbo_crouch_walk_r_aim_8 mp_akimbo_crouch_walk_r_aim_9
+aimset crouch_knife_F_aims 		= mp_jug_maniac_crouch_walk_aim_1 mp_jug_maniac_crouch_walk_aim_2 mp_jug_maniac_crouch_walk_aim_3 mp_jug_maniac_crouch_walk_aim_4 mp_jug_maniac_crouch_walk_aim_6 mp_jug_maniac_crouch_walk_aim_7 mp_jug_maniac_crouch_walk_aim_8 mp_jug_maniac_crouch_walk_aim_9
+aimset crouch_knife_L_aims 		= mp_jug_maniac_crouch_walk_l_aim_1 mp_jug_maniac_crouch_walk_l_aim_2 mp_jug_maniac_crouch_walk_l_aim_3 mp_jug_maniac_crouch_walk_l_aim_4 mp_jug_maniac_crouch_walk_l_aim_6 mp_jug_maniac_crouch_walk_l_aim_7 mp_jug_maniac_crouch_walk_l_aim_8 mp_jug_maniac_crouch_walk_l_aim_9
+aimset crouch_knife_R_aims 		= mp_jug_maniac_crouch_walk_r_aim_1 mp_jug_maniac_crouch_walk_r_aim_2 mp_jug_maniac_crouch_walk_r_aim_3 mp_jug_maniac_crouch_walk_r_aim_4 mp_jug_maniac_crouch_walk_r_aim_6 mp_jug_maniac_crouch_walk_r_aim_7 mp_jug_maniac_crouch_walk_r_aim_8 mp_jug_maniac_crouch_walk_r_aim_9
+aimset crouch_rocket_F_aims		= mp_rpg_crouch_walk_F_aim_1 mp_rpg_crouch_walk_F_aim_2 mp_rpg_crouch_walk_F_aim_3 mp_rpg_crouch_walk_F_aim_4 mp_rpg_crouch_walk_F_aim_6 mp_rpg_crouch_walk_F_aim_7 mp_rpg_crouch_walk_F_aim_8 mp_rpg_crouch_walk_F_aim_9
+aimset crouch_rocket_L_aims		= mp_rpg_crouch_walk_l_aim_1 mp_rpg_crouch_walk_l_aim_2 mp_rpg_crouch_walk_l_aim_3 mp_rpg_crouch_walk_l_aim_4 mp_rpg_crouch_walk_l_aim_6 mp_rpg_crouch_walk_l_aim_7 mp_rpg_crouch_walk_l_aim_8 mp_rpg_crouch_walk_l_aim_9
+aimset crouch_rocket_R_aims		= mp_rpg_crouch_walk_r_aim_1 mp_rpg_crouch_walk_r_aim_2 mp_rpg_crouch_walk_r_aim_3 mp_rpg_crouch_walk_r_aim_4 mp_rpg_crouch_walk_r_aim_6 mp_rpg_crouch_walk_r_aim_7 mp_rpg_crouch_walk_r_aim_8 mp_rpg_crouch_walk_r_aim_9
+//aimset crouch_exo_shield_L_aims	= mp_exo_shield_crouch_l_aim_1 mp_exo_shield_crouch_l_aim_2 mp_exo_shield_crouch_l_aim_3 mp_exo_shield_crouch_l_aim_4 mp_exo_shield_crouch_l_aim_6 mp_exo_shield_crouch_l_aim_7 mp_exo_shield_crouch_l_aim_8 mp_exo_shield_crouch_l_aim_9
+//aimset crouch_exo_shield_R_aims = mp_exo_shield_crouch_r_aim_1 mp_exo_shield_crouch_r_aim_2 mp_exo_shield_crouch_r_aim_3 mp_exo_shield_crouch_r_aim_4 mp_exo_shield_crouch_r_aim_6 mp_exo_shield_crouch_r_aim_7 mp_exo_shield_crouch_r_aim_8 mp_exo_shield_crouch_r_aim_9
+aimset crouch_run_hold_F_aims	= h1_mp_crouch_hold_run_aim_1 h1_mp_crouch_hold_run_aim_2 h1_mp_crouch_hold_run_aim_3 h1_mp_crouch_hold_run_aim_4 h1_mp_crouch_hold_run_aim_6 h1_mp_crouch_hold_run_aim_7 h1_mp_crouch_hold_run_aim_8 h1_mp_crouch_hold_run_aim_9
+aimset crouch_run_hold_L_aims	= h1_mp_crouch_hold_run_l_aim_1 h1_mp_crouch_hold_run_l_aim_2 h1_mp_crouch_hold_run_l_aim_3 h1_mp_crouch_hold_run_l_aim_4 h1_mp_crouch_hold_run_l_aim_6 h1_mp_crouch_hold_run_l_aim_7 h1_mp_crouch_hold_run_l_aim_8 h1_mp_crouch_hold_run_l_aim_9
+aimset crouch_run_hold_R_aims	= h1_mp_crouch_hold_run_r_aim_1 h1_mp_crouch_hold_run_r_aim_2 h1_mp_crouch_hold_run_r_aim_3 h1_mp_crouch_hold_run_r_aim_4 h1_mp_crouch_hold_run_r_aim_6 h1_mp_crouch_hold_run_r_aim_7 h1_mp_crouch_hold_run_r_aim_8 h1_mp_crouch_hold_run_r_aim_9
+
+
+//==========================================================================
+// LEAN_SETS
+//
+// These are sets of additive animations blended in to adjust the pose for
+// leaning
+
+LEAN_SETS
+
+leanset crouch_lean = mp_lean_crouch_L mp_lean_crouch_R
+leanset stand_lean = mp_lean_stand_L mp_lean_stand_R

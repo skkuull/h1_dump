@@ -1,0 +1,194 @@
+
+
+chicken_cage_freakout
+chicken_walk_basic
+chicken_cage_pecking_idle
+chicken_cage_seated_idle
+
+pigeon_idle
+pigeon_idle_twitch_1
+pigeon_flying_cycle
+
+pigeon_flock_fly_loop
+pigeon_flock_takeoff_wire
+pigeon_flock_land_wire
+pigeon_flock_takeoff_ground
+pigeon_flock_land_ground
+pigeon_flock_takeoff_inpipe
+pigeon_flock_land_inpipe
+
+// goose
+goose_flyingAnims : additive
+{
+	goose_flying
+	goose_flying_quickly
+}
+
+goose_idle_01
+goose_idle_02
+goose_takeoff_02
+goose_takeoff_03
+goose_takeoff_04
+goose_takeoff_05
+
+//hms greece scripted
+hms_greece_market_intro_goose_01
+hms_greece_market_intro_goose_02
+hms_greece_market_intro_goose_03
+
+egret_fly_flap
+egret_fly_glide
+//egret_fly_land
+egret_fly_takeoff
+egret_stand_idle_look
+egret_stand_idle_peck
+egret_stand_idle_still
+
+egret_flock_fly
+egret_flock_idle1
+egret_flock_takeoff
+//egret_flock_land
+
+bird_flock_large_fly_loop
+bird_flock_large_takeoff_tree
+bird_flock_large_land_tree
+bird_flock_large_takeoff_ground
+bird_flock_large_land_ground
+
+
+vulture_fly_away
+vulture_fly_loop
+vulture_fly_loop2
+vulture_fly_loop3
+vulture_idle
+vulture_idle_body	// This is an animation for the human body, but since that body has no other animations, it's simpler to use this smaller animtree.
+vulture_idle_body_pose	// Ditto.
+vulture_twitch
+
+sardines_flock_loop
+sardines_flock_spin
+{
+	sardines_flock_spinloop
+	sardines_flock_spinloop_fast
+	sardines_flock_spinloop_faster
+}
+sardines_flock_add_left60_add		 : additive
+{
+	sardines_flock_add_left60
+}
+sardines_flock_add_right60_add		 : additive
+{
+	sardines_flock_add_right60		 
+}
+sardines_flock_add_stretch_horiz_add : additive
+{
+	sardines_flock_add_stretch_horiz 
+}
+sardines_flock_add_tilt_left_add	 : additive
+{
+	sardines_flock_add_tilt_left	 
+}
+sardines_flock_add_tilt_right_add	 : additive
+{
+	sardines_flock_add_tilt_right	 
+}
+sardines_flock_add_rotate_left_add	 : additive
+{
+	sardines_flock_add_rotate_left	 
+}
+sardines_flock_add_rotate_right_add	 : additive
+{
+	sardines_flock_add_rotate_right	 
+}
+sardines_smallgroup_loop1
+
+deer
+{
+	deer_death_iw6
+	deer_idle
+	deer_idle_iw6
+	deer_idle_twitch
+	deer_run
+	deer_run_iw6
+	deer_walk
+	deerhunt_reveal_deer_a
+	deerhunt_reveal_deer_b
+	deerhunt_reveal_deer_a_idle
+	deerhunt_reveal_deer_b_idle
+	
+	//s1 additions
+	deer_death
+}
+
+shark_swim_f
+shark_swim_f_2
+shark_swim_r
+shark_swim_l
+
+shark_add_turn_l : additive
+{
+	shark_slight_turn_l
+}
+
+shark_add_turn_r : additive
+{
+	shark_slight_turn_r
+}
+
+shark_add_turn_u : additive
+{
+	shark_slight_turn_u
+}
+
+shark_add_turn_d : additive
+{
+	shark_slight_turn_d
+}
+
+shark_attack_VM_shark_1
+shark_attack_VM_shark_2
+shark_attack_VM_shark_4
+shark_attack_VM_shark_4_mirrored
+shark_attack_VM_shark_4_L
+shark_attack_VM_shark_4_R
+shark_attack_on_diver_1_shark
+shark_attack_on_diver_2_shark
+
+shark_turn_r45
+shark_turn_l45
+shark_turn_u45
+shark_turn_d45
+shark_turn_r90
+shark_turn_l90
+shark_turn_u45_r45
+shark_turn_u45_l45
+shark_turn_d45_r45
+shark_turn_d45_l45
+
+shark_death_1
+shark_death_loop_1
+shark_death_settle_1
+
+shark_death_2
+shark_death_loop_2
+shark_death_settle_2
+
+bannerfish_idle1
+bannerfish_idle_fast
+bannerfish_flee_straight
+bannerfish_flee_left
+bannerfish_flee_right
+bannerfish_turn_left : additive
+{
+	bannerfish_turn_left_add
+}
+bannerfish_turn_right : additive
+{
+	bannerfish_turn_right_add
+}
+
+// s1 lab
+lab_unarmed_walltop_deer
+lab_unarmed_walltop_deer_deathpose
+
+//COUP 

@@ -1,0 +1,2383 @@
+//==========================================================================
+//
+// Character Animation Script     M U L T I P L A Y E R
+//
+//==========================================================================
+
+//==========================================================================
+// EVENTS
+//
+// format:
+//
+// <event description>
+// {
+//		[DEFAULT / <condition type> [<condition value>], ...]
+//		{
+//			<both/legs/torso> <animation> [sound <filename>]
+//			<both/legs/torso> <animation> [sound <filename>]
+//			...
+//		}
+// }
+//
+// legend:
+//
+// <event description>: pain, death, fireweapon, jump, jumpbk, land, dropweapon,
+//		raiseweapon, reload, crouch_to_prone, shellshock, stunned
+//		prone_to_crouch, meleeattack
+//
+//	NOTE: for gameplay anims (weapons firing, reload, etc) that show no legs movement
+//		only the torso should animation from here, leave the legs doing what their
+//		locomotive anims want them to do
+//
+
+EVENTS
+
+fireweapon
+{
+// MANTLING
+	movetype mantle
+	{
+	}
+
+// MG42
+	mounted mg42
+	{
+	}
+
+	playerAnimType trophysystem
+	{
+	}
+	
+// LAST STAND
+	playerAnimType rocketlauncher, movetype laststand
+	{
+		torso pt_laststand_fire_RPG
+	}
+//	playerAnimTypePrimary riotshield, movetype laststand
+//	{
+//	}
+	movetype laststand, akimbo
+	{
+		torso pt_laststand_fire_akimbo
+	}
+	movetype laststand
+	{
+		torso pt_laststand_fire
+	}
+
+// HOLD
+	playerAnimType any_hold, movetype prone, playerAnimTypePrimary combatknife
+	{
+		torso mp_jug_maniac_prone_hold_throw
+	}
+	playerAnimType any_hold, movetype prone
+	{
+		torso pt_hold_prone_throw
+	}
+	playerAnimType any_hold, movetype crouching
+	{
+		torso h1_mp_crouch_hold_throw
+	}
+	playerAnimType any_hold, playerAnimTypePrimary combatknife
+	{
+		torso mp_jug_maniac_stand_hold_throw
+	}
+	playerAnimType hold
+	{
+ 		torso pt_hold_throw
+	}
+
+// RIOT SHIELD
+//	playerAnimType riotshield, movetype crouching
+//	{
+//		torso pt_riotshield_crouch_deploy_fire
+//	}
+//	playerAnimType riotshield
+//	{
+//		torso pt_riotshield_stand_deploy_fire
+//	}
+	
+// UPLINK PASS/THROW
+//	ball_carrier, movetype prone
+//	{
+//		torso mp_uplink_ball_throw_prone
+//	}
+//	ball_carrier
+//	{
+//		torso mp_uplink_ball_throw
+//	}
+		
+// MINIGUNS
+//	playerAnimType minigun, movetype idle
+//	{
+//		torso pt_mini_stand_shoot_auto
+//	}
+//	playerAnimType minigun
+//	{
+//	}
+	
+// PISTOLS AKIMBO
+	akimbo, movetype idleprone2idle AND idleprone2idlecr AND idlecr2idleprone
+	{
+	}
+	akimbo, movetype prone
+	{
+		torso pt_prone_shoot_akimbo
+	}
+	akimbo, movetype moving MINUS slide2sprint
+	{
+	}
+	akimbo, movetype crouching
+	{
+		torso pt_crouch_shoot_akimbo
+	}
+	akimbo
+	{
+		torso pt_stand_shoot_akimbo
+	}
+
+// PISTOLS
+	playerAnimType pistol, movetype idleprone2idle AND idleprone2idlecr AND idlecr2idleprone
+	{
+	}
+	playerAnimType pistol, movetype prone
+	{
+		torso pt_prone_shoot_pistol
+	}
+	playerAnimType pistol, movetype moving MINUS slide2sprint
+	{
+	}
+	playerAnimType pistol, movetype crouching
+	{
+		torso pt_crouch_shoot_pistol
+	}
+	playerAnimType pistol
+	{
+		torso pt_stand_shoot_pistol
+	}
+
+// PROJECTILE WEAPONS (assume ads since you can't fire these from the hip)
+	playerAnimType rocketlauncher, movetype prone
+	{
+		torso pt_prone_shoot_RPG
+	}
+	playerAnimType rocketlauncher, movetype crouching
+	{
+		torso h1_mp_rpg_crouch_fire
+	}
+	playerAnimType rocketlauncher
+	{
+		torso pt_stand_shoot_RPG
+	}
+
+// MG & SMG
+	weaponclass autofire, movetype idleprone2idle AND idleprone2idlecr AND idlecr2idleprone
+	{
+	}
+	weaponclass autofire, movetype prone
+	{
+		torso pt_prone_shoot_auto
+		duration 150
+	}
+	weaponclass autofire, movetype moving MINUS slide2sprint
+	{
+	}
+	weaponclass autofire, movetype crouching
+	{
+		torso pt_crouch_shoot_auto
+		duration 150
+	}
+	weaponclass autofire, weapon_position ads
+	{
+		torso pt_stand_shoot_auto_ads
+		duration 150
+	}
+	weaponclass autofire
+	{
+		torso pt_stand_shoot_auto
+		duration 150
+	}
+	
+// SHOTGUNS
+	weaponclass spread, movetype idleprone2idle AND idleprone2idlecr AND idlecr2idleprone
+	{
+	}
+	//weaponclass spread, movetype prone
+	//{
+	//	torso mp_prone_shotgun_fire 
+	//}
+	weaponclass spread, movetype moving MINUS slide2sprint
+	{
+	}
+	//weaponclass spread, movetype crouching
+	//{
+	//	torso mp_crouch_shotgun_fire
+	//}
+	//weaponclass spread, weapon_position ads
+	//{
+	//	torso mp_core_stand_fire_ADS
+	//}
+	//weaponclass spread
+	//{
+	//	torso mp_stand_shotgun_fire
+	//}
+	
+// DEFAULT (RIFLES)
+	movetype idleprone2idle AND idleprone2idlecr AND idlecr2idleprone
+	{
+	}
+	movetype prone
+	{
+		torso pt_prone_shoot_auto
+	}
+	movetype moving MINUS slide2sprint
+	{
+	}
+	movetype crouching
+	{
+		torso pt_crouch_shoot
+	}
+	weapon_position ads
+	{
+		torso pt_stand_shoot_ads
+	}
+
+// SNIPER
+	playerAnimType sniper
+	{
+		torso pt_rifle_fire
+	}
+	
+	default
+	{
+		torso pt_stand_shoot
+	}
+}
+
+pullout_trophysystem
+{
+	movetype prone
+	{
+		both mp_tac_insert_deploy_prone
+	}
+	default
+	{
+		torso mp_tac_insert_deploy
+	}
+}
+
+throw_grenade
+{
+	movetype prone, playerAnimTypePrimary hold
+	{
+		torso h1_mp_prone_hold_grenade_throw
+		aim prone_hold_gren_aims
+	}
+	movetype prone, playerAnimTypePrimary combatknife
+	{
+		torso pt_jug_maniac_prone_grenade_throw
+	}
+	movetype prone, playerAnimTypePrimary rocketlauncher
+	{
+		torso mp_rpg_prone_grenade_throw_throwback
+	}
+	movetype prone, akimbo
+	{
+		torso h1_mp_akimbo_pistol_prone_grenade_throw
+	}
+	movetype prone, playerAnimTypePrimary pistol
+	{
+		torso h1_mp_pistol_prone_grenade_throw
+		aim prone_pistol_gren_aims
+	}
+	movetype prone
+	{
+		torso mp_prone_grenade_throw_iw6_throwback
+	}
+//	movetype crouching, weaponclass shield, playerAnimType grenade, playerAnimTypePrimary riotshield
+//	{
+//		torso mp_shield_crouch_exo_shield_out
+//	}
+//	movetype crouching, weaponclass shield, playerAnimTypePrimary rocketlauncher
+//	{
+//		torso mp_rpg_crouch_exo_shield_out
+//	}
+//	movetype crouching, weaponclass shield, playerAnimTypePrimary pistol
+//	{
+//		torso mp_pistol_crouch_exo_shield_out
+//	}
+//	movetype crouching, weaponclass shield, playerAnimTypePrimary combatknife
+//	{
+//		torso mp_knife_crouch_exo_shield_out
+//	}
+//	movetype crouching, weaponclass shield
+//	{
+//		torso mp_assault_crouch_exo_shield_out
+//	}
+//	movetype crouching, playerAnimTypePrimary riotshield
+//	{
+// 		torso mp_shield_crouch_grenade_throw
+//	}
+	movetype crouching, playerAnimTypePrimary hold
+	{
+		torso h1_mp_crouch_hold_grenade_throw
+		aim crouch_hold_gren_aims
+	}
+	movetype crouching, playerAnimTypePrimary combatknife
+	{
+		torso pt_jug_maniac_crouch_grenade_throw
+	}
+	movetype crouching, playerAnimTypePrimary rocketlauncher
+	{
+		torso mp_rpg_crouch_grenade_throw_throwback
+		aim crouch_rpg_gren_aims
+	}
+	movetype crouching, akimbo
+	{
+		torso h1_mp_akimbo_pistol_crouch_grenade_throw
+	}
+	movetype crouching, playerAnimTypePrimary pistol
+	{
+		torso mp_pistol_crouch_grenade_throw_throwback
+		aim crouch_pistol_gren_aims
+	}
+	movetype crouching
+	{
+		torso mp_crouch_grenade_throw_throwback
+		aim crouch_rifle_gren_aims
+	}
+//	weaponclass shield, playerAnimType grenade, playerAnimTypePrimary riotshield
+//	{
+//		torso mp_shield_stand_exo_shield_out
+//	}
+//	weaponclass shield, playerAnimTypePrimary rocketlauncher
+//	{
+//		torso mp_rpg_stand_exo_shield_out
+//	}
+//	weaponclass shield, playerAnimTypePrimary pistol
+//	{
+//		torso mp_pistol_stand_exo_shield_out
+//	}
+//	weaponclass shield, playerAnimTypePrimary combatknife
+//	{
+//		torso mp_knife_stand_exo_shield_out
+//	}
+//	weaponclass shield
+//	{
+//		torso mp_assault_stand_exo_shield_out
+//	}
+	playerAnimTypePrimary hold
+	{
+		torso h1_mp_hold_grenade_throw
+		aim idle_hold_gren_aims
+	}
+	playerAnimTypePrimary rocketlauncher
+	{
+		torso mp_rpg_grenade_throw_throwback
+		aim idle_rpg_gren_aims
+	}
+	akimbo
+	{
+		torso h1_mp_akimbo_pistol_stand_grenade_throw
+	}
+	playerAnimTypePrimary pistol
+	{
+		torso mp_pistol_stand_grenade_throw_throwback
+		aim idle_pistol_gren_aims
+	}
+//	playerAnimTypePrimary riotshield
+//	{
+// 		torso pt_shield_grenade_throw
+//	}
+	playerAnimTypePrimary combatknife
+	{
+		torso pt_jug_maniac_grenade_throw
+	}
+	default
+	{
+		torso mp_stand_grenade_throw_throwback
+		aim idle_rifle_gren_aims
+	}
+}
+
+throwback_grenade
+{	
+	movetype prone, playerAnimTypePrimary hold
+	{
+		torso h1_mp_prone_hold_grenade_throw
+		aim prone_hold_gren_aims
+	}
+	movetype prone, playerAnimTypePrimary combatknife
+	{
+		torso pt_jug_maniac_prone_grenade_throw_throwback
+	}
+	movetype prone, playerAnimTypePrimary rocketlauncher
+	{
+		torso mp_rpg_prone_grenade_throw_throwback
+	}
+	movetype prone, akimbo
+	{
+		torso h1_mp_akimbo_pistol_prone_grenade_throw
+	}
+	movetype prone, playerAnimTypePrimary pistol
+	{
+		torso h1_mp_pistol_prone_grenade_throw
+		aim prone_pistol_gren_aims
+	}
+	movetype prone
+	{
+		torso mp_prone_grenade_throw_iw6_throwback
+	}
+//	movetype crouching, weaponclass shield, playerAnimType grenade, playerAnimTypePrimary riotshield
+//	{
+//		torso mp_shield_crouch_exo_shield_out
+//	}
+//	movetype crouching, weaponclass shield, playerAnimTypePrimary rocketlauncher
+//	{
+//		torso mp_rpg_crouch_exo_shield_out
+//	}
+//	movetype crouching, weaponclass shield, playerAnimTypePrimary pistol
+//	{
+//		torso mp_pistol_crouch_exo_shield_out
+//	}
+//	movetype crouching, weaponclass shield, playerAnimTypePrimary combatknife
+//	{
+//		torso mp_knife_crouch_exo_shield_out
+//	}
+//	movetype crouching, weaponclass shield
+//	{
+//		torso mp_assault_crouch_exo_shield_out
+//	}
+//	movetype crouching, playerAnimTypePrimary riotshield
+//	{
+// 		torso mp_shield_crouch_grenade_throw_throwback
+//	}
+	movetype crouching, playerAnimType any_hold
+	{
+		torso h1_mp_crouch_hold_grenade_throw
+		aim crouch_hold_gren_aims
+	}
+	movetype crouching, playerAnimTypePrimary combatknife
+	{
+		torso pt_jug_maniac_crouch_grenade_throw_throwback
+	}
+	movetype crouching, playerAnimTypePrimary rocketlauncher
+	{
+		torso mp_rpg_crouch_grenade_throw_throwback
+		aim crouch_rpg_gren_aims
+	}
+	movetype crouching, akimbo
+	{
+		torso h1_mp_akimbo_pistol_crouch_grenade_throw
+	}
+	movetype crouching, playerAnimTypePrimary pistol
+	{
+		torso mp_pistol_crouch_grenade_throw_throwback
+		aim crouch_pistol_gren_aims
+	}
+	movetype crouching
+	{
+		torso mp_crouch_grenade_throw_throwback
+		aim crouch_rifle_gren_aims
+	}
+//	weaponclass shield, playerAnimType grenade, playerAnimTypePrimary riotshield
+//	{
+//		torso mp_shield_stand_exo_shield_out
+//	}
+//	weaponclass shield, playerAnimTypePrimary rocketlauncher
+//	{
+//		torso mp_rpg_stand_exo_shield_out
+//	}
+//	weaponclass shield, playerAnimTypePrimary pistol
+//	{
+//		torso mp_pistol_stand_exo_shield_out
+//	}
+//	weaponclass shield, playerAnimTypePrimary combatknife
+//	{
+//		torso mp_knife_stand_exo_shield_out
+//	}
+//	weaponclass shield
+//	{
+//		torso mp_assault_stand_exo_shield_out
+//	}
+	playerAnimTypePrimary hold
+	{
+		torso h1_mp_hold_grenade_throw
+		aim idle_hold_gren_aims
+	}
+	playerAnimTypePrimary rocketlauncher
+	{
+		torso mp_rpg_grenade_throw_throwback
+		aim idle_rpg_gren_aims
+	}
+	akimbo
+	{
+		torso h1_mp_akimbo_pistol_stand_grenade_throw
+	}
+	playerAnimTypePrimary pistol
+	{
+		torso mp_pistol_stand_grenade_throw_throwback
+		aim idle_pistol_gren_aims
+	}
+//	playerAnimTypePrimary riotshield
+//	{
+// 		torso pt_shield_grenade_throw_throwback
+//	}
+	playerAnimTypePrimary combatknife
+	{
+		torso pt_jug_maniac_grenade_throw_throwback
+	}
+	default
+	{
+		torso mp_stand_grenade_throw_throwback
+		aim idle_rifle_gren_aims
+	}
+}
+
+prepare_grenade sync preparegrenade_group
+{
+	movetype idleprone, playerAnimTypePrimary hold
+	{
+		torso h1_mp_prone_hold_grenade_pull
+		aim prone_hold_gren_aims
+	}
+	movetype idleprone, playerAnimTypePrimary combatknife
+	{
+		torso pb_jug_maniac_prone_grenade_hold
+	}
+	movetype idleprone, playerAnimTypePrimary rocketlauncher
+	{
+		torso mp_rpg_prone_grenade_pull_throwback
+	}
+	movetype idleprone, akimbo
+	{
+		torso h1_mp_akimbo_pistol_prone_grenade_pull
+	}
+	movetype idleprone, playerAnimTypePrimary pistol
+	{
+		torso h1_mp_pistol_prone_grenade_pull
+		aim prone_pistol_gren_aims
+	}
+	movetype idleprone
+	{
+		torso mp_prone_grenade_pull_iw6_throwback
+	}
+	movetype prone AND idleprone2idlecr AND prone2walkcr AND prone2walkcrbk
+	{
+	}
+	
+	//special case for moving while crouched with exo-shield out
+//	movetype runcr AND runcrbk AND walkcr AND walkcrbk AND idlecr2walkcr AND idlecr2walkcrbk, weaponclass shield, playerAnimType grenade, playerAnimTypePrimary combatknife
+//	{
+//		torso mp_knife_crouch_walk_exo_shield_loop
+//	}
+//	movetype runcr AND runcrbk AND walkcr AND walkcrbk AND idlecr2walkcr AND idlecr2walkcrbk, weaponclass shield, playerAnimType grenade, playerAnimTypePrimary riotshield
+//	{
+//		torso mp_shield_crouch_walk_exo_shield_loop
+//	}
+//	movetype runcr AND runcrbk AND walkcr AND walkcrbk AND idlecr2walkcr AND idlecr2walkcrbk, weaponclass shield, playerAnimType grenade
+//	{
+//		torso mp_assault_crouch_walk_exo_shield_loop
+//	}
+	movetype crouching, playerAnimTypePrimary hold
+	{
+		torso h1_mp_crouch_hold_grenade_pull
+		aim crouch_hold_gren_aims
+	}
+//	movetype crouching, weaponclass shield, playerAnimType grenade, playerAnimTypePrimary combatknife
+//	{
+//		torso mp_knife_crouch_exo_shield_loop
+//	}
+//	movetype crouching, weaponclass shield, playerAnimType grenade, playerAnimTypePrimary riotshield
+//	{
+//		torso mp_shield_crouch_exo_shield_loop
+//	}
+//	movetype crouching, weaponclass shield, playerAnimType grenade
+//	{
+//		torso mp_assault_crouch_exo_shield_loop
+//	}
+	movetype crouching, akimbo
+	{
+		torso h1_mp_akimbo_pistol_crouch_grenade_pull
+	}
+	movetype crouching, playerAnimTypePrimary pistol
+	{
+		torso mp_pistol_crouch_grenade_pull_throwback
+		aim crouch_pistol_gren_aims
+	}
+//	movetype crouching, playerAnimTypePrimary riotshield
+//	{
+//		torso mp_shield_crouch_grenade_pullout
+//	}
+	movetype crouching, playerAnimTypePrimary combatknife
+	{
+		torso pb_jug_maniac_crouch_grenade_load
+	}
+	movetype crouching, playerAnimTypePrimary rocketlauncher
+	{
+		torso mp_rpg_crouch_grenade_hold_throwback
+		aim crouch_rpg_gren_aims
+	}
+	movetype crouching
+	{
+		torso mp_crouch_grenade_pull_throwback
+		aim crouch_rifle_gren_aims
+	}
+	playerAnimTypePrimary hold
+	{
+		torso h1_mp_hold_grenade_pull
+		aim idle_hold_gren_aims
+	}
+//	weaponclass shield, playerAnimType grenade, playerAnimTypePrimary combatknife
+//	{
+//		torso mp_knife_stand_exo_shield_loop
+//	}
+//	weaponclass shield, playerAnimType grenade, playerAnimTypePrimary riotshield
+//	{
+//		torso mp_shield_stand_exo_shield_loop
+//	}
+//	weaponclass shield, playerAnimType grenade
+//	{
+//		torso mp_assault_stand_exo_shield_loop
+//	}
+	playerAnimTypePrimary rocketlauncher
+	{
+		torso mp_rpg_grenade_hold_throwback
+		aim idle_rpg_gren_aims
+	}
+//	playerAnimTypePrimary riotshield
+//	{
+//		torso pb_shield_grenade_pullpin
+//	}
+	juggernaut
+	{
+	}
+	playerAnimTypePrimary combatknife
+	{
+		torso pb_jug_maniac_grenade_hold
+	}
+	akimbo
+	{
+		torso h1_mp_akimbo_pistol_stand_grenade_pull
+	}
+	playerAnimTypePrimary pistol
+	{
+		torso mp_pistol_stand_grenade_pull_throwback
+		aim idle_pistol_gren_aims
+	}
+	default
+	{
+		torso mp_stand_grenade_pull_throwback
+		aim idle_rifle_gren_aims
+	}
+}
+
+prepare_grenade_throwback sync preparegrenade_group
+{
+	movetype idleprone, playerAnimTypePrimary hold
+	{
+		torso h1_mp_prone_hold_grenade_pull
+		aim prone_hold_gren_aims
+	}
+	movetype idleprone, playerAnimTypePrimary combatknife
+	{
+		torso pb_jug_maniac_prone_grenade_hold_throwback
+	}
+	movetype idleprone, playerAnimTypePrimary rocketlauncher
+	{
+		torso mp_rpg_prone_grenade_pull_throwback
+	}
+	movetype idleprone, akimbo
+	{
+		torso h1_mp_akimbo_pistol_prone_grenade_pull
+	}
+	movetype idleprone, playerAnimTypePrimary pistol
+	{
+		torso h1_mp_pistol_prone_grenade_pull
+		aim prone_pistol_gren_aims
+	}
+	movetype idleprone
+	{
+		torso mp_prone_grenade_pull_iw6_throwback
+	}
+	movetype prone AND idleprone2idlecr AND prone2walkcr AND prone2walkcrbk
+	{
+	}
+//	movetype crouching, weaponclass shield, playerAnimType grenade
+//	{
+//		torso mp_assault_crouch_exo_shield_loop
+//	}
+	movetype crouching, playerAnimTypePrimary hold
+	{
+		torso h1_mp_crouch_hold_grenade_pull
+		aim crouch_hold_gren_aims
+	}
+	movetype crouching, akimbo
+	{
+		torso h1_mp_akimbo_pistol_crouch_grenade_pull
+	}
+	movetype crouching, playerAnimTypePrimary pistol
+	{
+		torso mp_pistol_crouch_grenade_pull_throwback
+		aim crouch_pistol_gren_aims
+	}
+//	movetype crouching, playerAnimTypePrimary riotshield
+//	{
+//		torso mp_shield_crouch_grenade_pullout_throwback
+//	}
+	movetype crouching, playerAnimTypePrimary combatknife
+	{
+		torso pb_jug_maniac_crouch_grenade_load_throwback
+	}
+	movetype crouching, playerAnimTypePrimary rocketlauncher
+	{
+		torso mp_rpg_crouch_grenade_hold_throwback
+		aim crouch_rpg_gren_aims
+	}
+	movetype crouching
+	{
+		torso mp_crouch_grenade_pull_throwback
+		aim crouch_rifle_gren_aims
+	}
+	playerAnimTypePrimary rocketlauncher
+	{
+		torso mp_rpg_grenade_hold_throwback
+		aim idle_rpg_gren_aims
+	}
+//	weaponclass shield, playerAnimType grenade
+//	{
+//		torso mp_assault_stand_exo_shield_loop
+//	}
+//	playerAnimTypePrimary riotshield
+//	{
+//		torso pb_shield_grenade_pullpin_throwback
+//	}
+	playerAnimTypePrimary hold
+	{
+		torso h1_mp_hold_grenade_pull
+		aim idle_hold_gren_aims
+	}
+	juggernaut
+	{
+	}
+	playerAnimTypePrimary combatknife
+	{
+		torso pb_jug_maniac_grenade_hold_throwback
+	}
+	akimbo
+	{
+		torso h1_mp_akimbo_pistol_stand_grenade_pull
+	}
+	playerAnimTypePrimary pistol
+	{
+		torso mp_pistol_stand_grenade_pull_throwback
+		aim idle_pistol_gren_aims
+	}
+	default
+	{
+		torso mp_stand_grenade_pull_throwback
+		aim idle_rifle_gren_aims
+	}
+}
+
+killstreak_activation
+{
+	movetype prone, playerAnimTypePrimary rocketlauncher
+	{
+		torso mp_rpg_prone_killstreak_activation
+	}
+	movetype prone, playerAnimTypePrimary combatknife
+	{
+		torso mp_knife_prone_killstreak_activation
+	}
+	movetype prone, playerAnimTypePrimary pistol
+	{
+		torso mp_pistol_prone_killstreak_activation
+	}
+	movetype prone, akimbo
+	{
+		torso h1_mp_akimbo_prone_killstreak_activation 
+	}
+	movetype prone
+	{
+		torso mp_assault_prone_killstreak_activation
+	}
+//	movetype crouching, playerAnimTypePrimary riotshield
+//	{
+//		torso mp_shield_crouch_killstreak_activation
+//	}
+	movetype crouching, playerAnimTypePrimary rocketlauncher
+	{
+		torso mp_rpg_crouch_killstreak_activation
+	}
+	movetype crouching, playerAnimTypePrimary combatknife
+	{
+		torso mp_knife_crouch_killstreak_activation
+	}
+	movetype crouching, playerAnimTypePrimary pistol
+	{
+		torso mp_pistol_crouch_killstreak_activation
+	}
+	movetype crouching, akimbo
+	{
+		torso h1_mp_akimbo_crouch_killstreak_activation
+	}
+	movetype crouching
+	{
+		torso mp_assault_crouch_killstreak_activation
+	}
+//	playerAnimTypePrimary riotshield
+//	{
+//		torso mp_shield_stand_killstreak_activation
+//	}
+	playerAnimTypePrimary rocketlauncher
+	{
+		torso mp_rpg_stand_killstreak_activation
+	}
+	playerAnimTypePrimary combatknife
+	{
+		torso mp_knife_stand_killstreak_activation
+	}
+	playerAnimTypePrimary pistol
+	{
+		torso mp_pistol_stand_killstreak_activation
+	}
+	akimbo
+	{
+		torso h1_mp_akimbo_stand_killstreak_activation
+	}
+	default
+	{
+		torso mp_assault_stand_killstreak_activation
+	}
+}
+
+meleeattack
+{
+//	movetype crouching, playerAnimType riotshield
+//	{
+//		torso mp_shield_crouch_melee
+//	}
+//	movetype crouching, weaponclass shield, playerAnimTypePrimary riotshield
+//	{
+//		torso mp_shield_crouch_exo_shield_melee
+//	}
+//	movetype crouching, weaponclass shield, playerAnimTypePrimary combatknife
+//	{
+//		torso mp_knife_crouch_exo_shield_melee
+//	}
+//	movetype crouching, weaponclass shield
+//	{
+//		torso mp_assault_crouch_exo_shield_melee
+//	}
+//	playerAnimType riotshield
+//	{
+//		torso pt_melee_shield
+//	}
+//	weaponclass shield, playerAnimType grenade, playerAnimTypePrimary riotshield
+//	{
+//		torso mp_shield_stand_exo_shield_melee
+//	}
+//	weaponclass shield, playerAnimTypePrimary combatknife
+//	{
+//		torso mp_knife_stand_exo_shield_melee
+//	}
+//	weaponclass shield
+//	{
+//		torso mp_assault_stand_exo_shield_melee
+//	}
+	movetype laststand
+	{
+		both pt_laststand_melee
+	}
+	movetype prone, akimbo, has_melee_weapon
+	{
+		torso h1_mp_akimbo_prone_meleeweap_swipe duration 800
+	}
+	movetype prone, akimbo
+	{
+		torso mp_akimbo_prone_melee_a blendtime 35 duration 800
+	}
+	movetype prone, playerAnimTypePrimary rocketlauncher, has_melee_weapon
+	{
+		torso h1_mp_rpg_prone_meleeweap_swipe duration 800
+	}
+	movetype prone, playerAnimTypePrimary pistol, has_melee_weapon
+	{
+		torso h1_mp_pistol_prone_meleeweap_swipe duration 800
+	}
+	movetype prone, has_melee_weapon
+	{
+		torso h1_mp_assault_prone_meleeweap_swipe duration 800
+	}
+	movetype prone
+	{
+		torso pt_melee_prone_pistol
+		duration 800
+	}
+	movetype crouching, playerAnimTypePrimary rocketlauncher, has_melee_weapon
+	{
+		torso h1_mp_rpg_crouch_meleeweap_swipe duration 800
+	}
+	movetype crouching, playerAnimTypePrimary rocketlauncher
+	{
+		torso mp_rpg_crouch_melee duration 800
+		torso mp_rpg_crouch_meleeA duration 800
+	}
+	movetype crouching, akimbo, has_melee_weapon
+	{
+		torso h1_mp_akimbo_crouch_meleeweap_swipe duration 800
+	}
+	movetype crouching, akimbo
+	{
+		torso mp_akimbo_crouch_melee_a blendtime 35 duration 800
+	}
+	movetype crouching, playerAnimTypePrimary pistol, has_melee_weapon
+	{
+		torso h1_mp_pistol_crouch_meleeweap_swipe duration 800
+	}
+	movetype crouching, playerAnimTypePrimary pistol
+	{
+		torso mp_pistol_crouch_melee_A blendtime 35 duration 800
+	}
+	movetype crouching, has_melee_weapon
+	{
+		torso h1_mp_assault_crouch_meleeweap_swipe duration 800
+	}
+//	ball_carrier
+//	{
+//		torso mp_uplink_ball_stand_melee_a
+//	}
+	akimbo, has_melee_weapon
+	{
+		torso h1_mp_akimbo_stand_meleeweap_swipe duration 800
+	}
+	playerAnimTypePrimary rocketlauncher, has_melee_weapon
+	{
+		torso h1_mp_rpg_stand_meleeweap_swipe duration 800
+	}
+	playerAnimTypePrimary rocketlauncher
+	{
+		torso mp_rpg_melee duration 800
+		torso mp_rpg_melee_swipe duration 800
+	}
+	akimbo
+	{
+		torso mp_akimbo_stand_melee_A blendtime 35 duration 800
+	}
+	playerAnimTypePrimary pistol, has_melee_weapon
+	{
+		torso h1_mp_pistol_stand_meleeweap_swipe duration 800
+	}
+	has_melee_weapon
+	{
+		torso h1_mp_assault_stand_meleeweap_swipe duration 800
+	}
+	default
+	{
+		torso pt_melee_pistol_1 duration 800
+	}
+}
+
+knife_melee
+{
+	movetype prone, playerAnimTypePrimary combatknife
+	{
+		torso pt_jug_maniac_prone_melee_a duration 800
+		torso pt_jug_maniac_prone_melee_b duration 800
+	}
+	movetype prone, akimbo, has_melee_weapon
+	{
+		torso h1_mp_akimbo_prone_meleeweap_swipe duration 800
+	}
+	movetype prone, playerAnimTypePrimary rocketlauncher, has_melee_weapon
+	{
+		torso h1_mp_rpg_prone_meleeweap_swipe duration 800
+	}
+	movetype prone, playerAnimTypePrimary rocketlauncher
+	{
+		torso h1_mp_rpg_prone_melee_swipe
+	}
+	movetype prone, playerAnimTypePrimary pistol, has_melee_weapon
+	{
+		torso h1_mp_pistol_prone_meleeweap_swipe duration 800
+	}
+	movetype prone, playerAnimTypePrimary pistol
+	{
+		torso h1_mp_pistol_prone_melee_swipe blendtime 35 duration 800
+	}
+	movetype prone, has_melee_weapon
+	{
+		torso h1_mp_assault_prone_meleeweap_swipe duration 800
+	}
+	movetype prone
+	{
+		torso h1_mp_assault_prone_melee_swipe blendtime 35 duration 800
+	}
+	movetype laststand
+	{
+		both pt_laststand_melee
+	}
+//	ball_carrier
+//	{
+//		torso mp_uplink_ball_stand_melee_a
+//	}
+	movetype crouching, playerAnimTypePrimary combatknife
+	{
+		torso pt_jug_maniac_crouch_melee_a
+		torso pt_jug_maniac_crouch_melee_b duration 800
+		torso pt_jug_maniac_crouch_melee_c duration 800
+		torso pt_jug_maniac_crouch_melee_d duration 800
+		torso pt_jug_maniac_crouch_melee_e duration 800
+	}
+	movetype crouching, akimbo, has_melee_weapon
+	{
+		torso h1_mp_akimbo_crouch_meleeweap_swipe duration 800
+	}
+	movetype crouching, playerAnimTypePrimary rocketlauncher, has_melee_weapon
+	{
+		torso h1_mp_rpg_crouch_meleeweap_swipe duration 800
+	}
+	movetype crouching, playerAnimTypePrimary rocketlauncher
+	{
+		torso h1_mp_rpg_crouch_melee_swipe blendtime 35 duration 800
+	}
+	movetype crouching, playerAnimTypePrimary pistol, has_melee_weapon
+	{
+		torso h1_mp_pistol_crouch_meleeweap_swipe duration 800
+	}
+	movetype crouching, playerAnimTypePrimary pistol
+	{
+		torso h1_mp_pistol_crouch_melee_swipe blendtime 35 duration 800
+	}
+	movetype crouching, has_melee_weapon
+	{
+		torso h1_mp_assault_crouch_meleeweap_swipe duration 800
+	}
+	movetype crouching
+	{
+		torso h1_mp_assault_crouch_melee_swipe blendtime 35 duration 800
+	}
+	akimbo, has_melee_weapon
+	{
+		torso h1_mp_akimbo_stand_meleeweap_swipe duration 800
+	}
+	playerAnimTypePrimary rocketlauncher, has_melee_weapon
+	{
+		torso h1_mp_rpg_stand_meleeweap_swipe duration 800
+	}
+	playerAnimTypePrimary rocketlauncher
+	{
+		torso h1_mp_rpg_stand_melee_swipe blendtime 35 duration 800
+	}
+	playerAnimTypePrimary pistol, has_melee_weapon
+	{
+		torso h1_mp_pistol_stand_meleeweap_swipe duration 800
+	}
+	playerAnimTypePrimary pistol
+	{
+		torso h1_mp_pistol_stand_melee_swipe blendtime 35 duration 800
+	}
+	playerAnimTypePrimary combatknife
+	{
+		torso pt_jug_maniac_meleea
+		torso pt_jug_maniac_meleeb duration 800
+		torso pt_jug_maniac_meleec duration 800
+		torso pt_jug_maniac_meleed duration 800
+	}
+	has_melee_weapon
+	{
+		torso h1_mp_assault_stand_meleeweap_swipe duration 800
+	}
+	default
+	{
+		torso h1_mp_assault_stand_melee_swipe duration 800
+	}
+}
+
+knife_melee_charge
+{
+	movetype prone, akimbo, has_melee_weapon
+	{
+		torso h1_mp_akimbo_prone_meleeweap_stab
+	}
+	movetype prone, playerAnimTypePrimary rocketlauncher, has_melee_weapon
+	{
+		torso h1_mp_rpg_prone_meleeweap_stab
+	}
+	movetype prone, playerAnimTypePrimary rocketlauncher
+	{
+		torso h1_mp_rpg_prone_melee_stab
+	}
+	movetype prone, playerAnimTypePrimary pistol, has_melee_weapon
+	{
+		torso h1_mp_pistol_prone_meleeweap_stab
+	}
+	movetype prone, playerAnimTypePrimary pistol
+	{
+		torso h1_mp_pistol_prone_melee_stab
+	}
+	movetype prone, has_melee_weapon
+	{
+		torso h1_mp_assault_prone_meleeweap_stab
+	}
+	movetype prone
+	{
+		torso h1_mp_assault_prone_melee_stab
+	}
+	movetype crouching, playerAnimTypePrimary combatknife
+	{
+		torso pt_jug_maniac_crouch_melee_e
+	}
+	movetype crouching, akimbo, has_melee_weapon
+	{
+		torso h1_mp_akimbo_crouch_meleeweap_stab
+	}
+	movetype crouching, playerAnimTypePrimary rocketlauncher, has_melee_weapon
+	{
+		torso h1_mp_rpg_crouch_meleeweap_stab
+	}
+	movetype crouching, playerAnimTypePrimary rocketlauncher
+	{
+		torso h1_mp_rpg_crouch_melee_stab
+	}
+	movetype crouching, playerAnimTypePrimary pistol, has_melee_weapon
+	{
+		torso h1_mp_pistol_crouch_meleeweap_stab
+	}
+	movetype crouching, playerAnimTypePrimary pistol
+	{
+		torso h1_mp_pistol_crouch_melee_stab
+	}
+	movetype crouching, has_melee_weapon
+	{
+		torso h1_mp_assault_crouch_meleeweap_stab
+	}
+	movetype crouching
+	{
+		torso h1_mp_assault_crouch_melee_stab
+	}
+	akimbo, has_melee_weapon
+	{
+		torso h1_mp_akimbo_stand_meleeweap_stab
+	}
+	playerAnimTypePrimary rocketlauncher, has_melee_weapon
+	{
+		torso h1_mp_rpg_stand_meleeweap_stab
+	}
+	playerAnimTypePrimary rocketlauncher
+	{
+		torso h1_mp_rpg_stand_melee_stab
+	}
+	playerAnimTypePrimary pistol, has_melee_weapon
+	{
+		torso h1_mp_pistol_stand_meleeweap_stab
+	}
+	playerAnimTypePrimary pistol
+	{
+		torso h1_mp_pistol_stand_melee_stab
+	}
+	playerAnimTypePrimary combatknife
+	{
+		torso pt_jug_maniac_meleee
+	}
+	has_melee_weapon
+	{
+		torso h1_mp_assault_stand_meleeweap_stab
+	}
+	default
+	{
+		torso h1_mp_assault_stand_melee_stab
+	}
+}
+
+
+dropweapon
+{
+	movetype prone, nextweapon briefcase, playerAnimType combatknife
+	{
+		torso h1_mp_melee_srchdstry_prone_bomb_in
+	}
+	movetype crouching, nextweapon briefcase, playerAnimType combatknife
+	{
+		torso h1_mp_melee_srchdstry_crouch_bomb_in
+	}
+	nextweapon briefcase, playerAnimType combatknife
+	{
+		torso h1_mp_melee_srchdstry_stand_bomb_in
+	}
+	movetype prone, playerAnimTypePrimary briefcase, nextweapon combatknife
+	{
+		torso h1_mp_melee_srchdstry_prone_bomb_arm
+	}
+	movetype crouching, playerAnimTypePrimary briefcase, nextweapon combatknife
+	{
+		torso h1_mp_melee_srchdstry_crouch_bomb_arm
+	}
+	playerAnimTypePrimary briefcase, nextweapon combatknife
+	{
+		torso h1_mp_melee_srchdstry_stand_bomb_arm
+	}
+	nextweapon briefcase, movetype prone
+	{
+		torso mp_srchdstry_prone_bomb_in
+	}
+	nextweapon briefcase, movetype crouching
+	{
+		torso mp_srchdstry_crouch_bomb_in
+	}
+	nextweapon briefcase
+	{
+		torso mp_srchdstry_stand_bomb_in
+	}
+	playerAnimTypePrimary briefcase, movetype prone
+	{
+		torso mp_srchdstry_prone_bomb_arm
+	}
+	playerAnimTypePrimary briefcase, movetype crouching
+	{
+		torso mp_srchdstry_crouch_bomb_arm
+	}
+	playerAnimTypePrimary briefcase
+	{
+		torso mp_srchdstry_stand_bomb_arm
+	}
+//	ball_carrier, movetype prone
+//	{
+//	}
+//	ball_carrier
+//	{
+//		torso mp_uplink_ball_pullout
+//	}
+	movetype idleprone, nextweapon combatknife, akimbo
+	{
+		torso h1_mp_akimbo_prone_weapon_swap_akimbo2melee
+	}
+	movetype idleprone, nextweapon combatknife, playerAnimType hold 
+	{
+  		torso h1_mp_prone_hold_to_melee
+	}
+  	movetype idleprone, nextweapon combatknife, playerAnimType pistol 
+	{
+  		torso h1_mp_prone_pistol_to_melee
+	}
+ 	movetype idleprone, nextweapon combatknife, playerAnimType rocketlauncher  
+	{
+  		torso h1_mp_prone_rpg_to_melee
+	}
+  	movetype idleprone, nextweapon combatknife 
+	{
+  		torso h1_mp_prone_longgun_to_melee
+	}
+	movetype crouching, nextweapon combatknife, akimbo
+	{
+		torso h1_mp_akimbo_crouch_weapon_swap_akimbo2melee
+	}
+  	movetype crouching, nextweapon combatknife, playerAnimType hold 
+	{
+  		torso h1_mp_crouch_hold_to_melee
+	}
+  	movetype crouching, nextweapon combatknife, playerAnimType pistol 
+	{
+  		torso h1_mp_crouch_pistol_to_melee
+	}
+  	movetype crouching, nextweapon combatknife, playerAnimType rocketlauncher  
+	{
+  		torso h1_mp_crouch_rpg_to_melee
+	}
+  	movetype crouching, nextweapon combatknife 
+	{
+  		torso h1_mp_crouch_longgun_to_melee
+	}
+	movetype prone, nextweapon combatknife
+	{
+	}
+	nextweapon combatknife, akimbo
+	{
+		torso h1_mp_akimbo_stand_weapon_swap_akimbo2melee
+	}
+  	nextweapon combatknife, playerAnimType hold 
+	{
+  		torso h1_mp_stand_hold_to_melee
+	}
+  	nextweapon combatknife, playerAnimType pistol 
+	{
+  		torso h1_mp_stand_pistol_to_melee
+	}
+  	nextweapon combatknife, playerAnimType rocketlauncher  
+	{
+  		torso h1_mp_stand_rpg_to_melee
+	}
+  	nextweapon combatknife 
+	{
+  		torso h1_mp_stand_longgun_to_melee
+	}
+	movetype idleprone, nextweapon_akimbo, playerAnimType combatknife
+	{
+		torso h1_mp_akimbo_prone_weapon_swap_melee2akimbo
+	}
+  	movetype idleprone, nextweapon hold, playerAnimType combatknife 
+	{
+  		torso h1_mp_prone_melee_to_hold
+	}
+  	movetype idleprone, nextweapon pistol, playerAnimType combatknife 
+	{
+  		torso h1_mp_prone_melee_to_pistol
+	}
+  	movetype idleprone, nextweapon rocketlauncher, playerAnimType combatknife  
+	{
+  		torso h1_mp_prone_melee_to_rpg
+	}
+  	movetype idleprone, playerAnimType combatknife 
+	{
+  		torso h1_mp_prone_melee_to_longgun
+	}
+	movetype crouching, nextweapon_akimbo, playerAnimType combatknife
+	{
+		torso h1_mp_akimbo_crouch_weapon_swap_melee2akimbo
+	}
+  	movetype crouching, nextweapon hold, playerAnimType combatknife 
+	{
+  		torso h1_mp_crouch_melee_to_hold
+	}
+  	movetype crouching, nextweapon pistol, playerAnimType combatknife 
+	{
+  		torso h1_mp_crouch_melee_to_pistol
+	}
+  	movetype crouching, nextweapon rocketlauncher, playerAnimType combatknife  
+	{
+  		torso h1_mp_crouch_melee_to_rpg
+	}
+  	movetype crouching, playerAnimType combatknife
+	{
+  		torso h1_mp_crouch_melee_to_longgun
+	}
+	movetype prone, playerAnimType combatknife
+	{
+	}
+	nextweapon_akimbo, playerAnimType combatknife
+	{
+		torso h1_mp_akimbo_stand_weapon_swap_melee2akimbo
+	}
+  	nextweapon hold, playerAnimType combatknife 
+	{
+  		torso h1_mp_stand_melee_to_hold
+	}
+  	nextweapon pistol, playerAnimType combatknife 
+	{
+  		torso h1_mp_stand_melee_to_pistol
+	}
+  	nextweapon rocketlauncher, playerAnimType combatknife  
+	{
+  		torso h1_mp_stand_melee_to_rpg
+	}
+  	playerAnimType combatknife 
+	{
+  		torso h1_mp_stand_melee_to_longgun
+	}
+	playerAnimType briefcase AND laptop AND none
+	{
+	}
+	movetype idleprone, nextweapon hold
+	{
+		torso h1_mp_prone_weapon_swap_lg2hold
+	}
+	movetype idleprone, playerAnimType any_hold
+	{
+		torso h1_mp_prone_weapon_swap_hold2lg	
+	}
+	movetype idleprone, playerAnimTypePrimary rocketlauncher
+	{
+		torso mp_rpg_prone_weapon_switch
+	}
+	movetype idleprone, nextweapon rocketlauncher
+	{
+		torso mp_rpg_prone_weapon_switch
+	}
+	movetype idleprone, nextweapon_akimbo
+	{
+		torso mp_akimbo_prone_wpnswp_lg2pistol
+	}
+	movetype idleprone, akimbo, nextweapon pistol
+	{
+		torso mp_akimbo_prone_swap_akimbo2pstl
+	}
+	movetype idleprone, akimbo
+	{
+		torso mp_akimbo_prone_wpnswp_pistol2lg
+	}
+	movetype idleprone, playerAnimTypePrimary pistol
+	{
+		torso mp_prone_weapon_swap_pistol2lg
+	}
+	movetype idleprone, nextweapon pistol
+	{
+		torso mp_prone_weapon_swap_lg2pistol
+	}
+	movetype idleprone
+	{
+		torso mp_prone_weapon_switch_iw6
+	}
+	movetype prone
+	{
+	}
+//	movetype crouching, playerAnimTypePrimary riotshield, nextweapon pistol
+//	{
+//		torso mp_shield_crouch_shield_2_pistol
+//	}
+//	movetype crouching, playerAnimTypePrimary riotshield, nextweapon rocketlauncher
+//	{
+//		torso mp_shield_crouch_swap_shield2rpg
+//	}
+//	movetype crouching, playerAnimTypePrimary riotshield
+//	{
+//		torso mp_shield_crouch_swap_shield2gun
+//	}
+//	playerAnimTypePrimary riotshield, nextweapon pistol
+//	{
+//		torso mp_shield_stand_shield_2_pistol
+//	}
+//	playerAnimTypePrimary riotshield, nextweapon rocketlauncher
+//	{
+//		torso mp_shield_stand_swap_shield2rpg
+//	}
+//	movetype crouching, nextweapon riotshield
+//	{
+//		torso mp_shield_crouch_swap_gun2shield
+//	}
+//	nextweapon riotshield
+//	{
+//		torso mp_shield_stand_swap_gun2shield
+//	}
+//	playerAnimTypePrimary riotshield
+//	{
+//		torso mp_shield_stand_swap_shield2gun
+//	}
+	movetype crouching, nextweapon_akimbo
+	{
+		torso mp_akimbo_crouch_wpnswp_lg2pistol
+	}
+	movetype crouching, nextweapon hold
+	{
+		torso h1_mp_crouch_weapon_swap_lg2hold
+	}
+	movetype crouching, playerAnimType any_hold
+	{
+		torso h1_mp_crouch_weapon_swap_hold2lg	
+	}
+	movetype crouching, nextweapon rocketlauncher
+	{
+		torso mp_rpg_crouch_weapon_swap_lg2rpg
+	}
+	movetype crouching, playerAnimTypePrimary rocketlauncher
+	{
+		torso mp_rpg_crouch_weapon_swap_rpg2lg
+	}
+	movetype crouching, akimbo, nextweapon pistol
+	{
+		torso mp_akimbo_crouch_swap_akimbo2pstl
+	}
+	movetype crouching, akimbo
+	{
+		torso mp_akimbo_crouch_wpnswp_pistol2lg
+	}
+	movetype crouching, playerAnimTypePrimary pistol
+	{
+		torso mp_crouch_weapon_swap_pistol2lg
+	}
+	movetype crouching, nextweapon pistol
+	{
+		torso mp_crouch_weapon_swap_lg2pistol
+	}
+	movetype crouching
+	{
+		torso mp_crouch_weapon_swap_iw6
+	}
+	movetype laststand
+	{
+		torso pt_laststand_pullout_pose
+	}
+	nextweapon hold
+	{
+		torso h1_mp_stand_weapon_swap_lg2hold
+	}
+	playerAnimType any_hold
+	{
+		torso h1_mp_stand_weapon_swap_hold2lg	
+	}
+	nextweapon rocketlauncher
+	{
+		torso mp_rpg_stand_weapon_swap_lg2rpg
+	}
+	playerAnimTypePrimary rocketlauncher
+	{
+		torso mp_rpg_stand_weapon_swap_rpg2lg
+	}
+	nextweapon_akimbo
+	{
+		torso mp_akimbo_stand_wpn_swp_lg2ak
+	}
+	akimbo, nextweapon pistol
+	{
+		torso mp_akimbo_stand_swap_akimbo2pstl
+	}
+	akimbo
+	{
+		torso mp_akimbo_stand_swap_akimbo2lg
+	}
+//	nextweapon minigun
+//	{
+//		torso mp_stand_weapon_swap_pistol2mini
+//	}
+	playerAnimTypePrimary pistol
+	{
+		torso mp_stand_weapon_swap_pistol2lg
+	}
+//	playerAnimTypePrimary minigun
+//	{
+//		torso mp_stand_weapon_swap_mini2pistol
+//	}
+	nextweapon pistol
+	{
+		torso mp_stand_weapon_swap_lg2pistol
+	}
+	default
+	{
+		torso pt_stand_core_pullout
+	}
+}
+
+raiseweapon
+{
+	// (Boon 07-11-2003) Don't want anything here - just blend into the correct pose.
+}
+
+reload
+{
+	playerAnimType laptop AND combatknife
+	{
+	}
+	playerAnimType rocketlauncher, movetype laststand
+ 	{
+   		torso pt_laststand_reload_RPG
+  	}
+	akimbo, movetype laststand
+ 	{
+   		torso pt_laststand_reload_akimbo
+  	}
+	movetype laststand
+ 	{
+   		torso pt_laststand_reload
+  	}
+  	akimbo, movetype idleprone2idlecr AND idleprone2idle
+	{
+		// fullbody reloads (like mp_akimbo_prone_reload) look terrible when they blend over to torso reloads (like mp_akimbo_crouch_reload)
+	}
+	akimbo, movetype idleprone
+	{
+		torso mp_akimbo_prone_reload
+	}
+	akimbo, movetype prone
+	{
+	}
+	akimbo, movetype crouching
+	{
+		torso mp_akimbo_crouch_reload
+	}
+	akimbo
+	{
+		torso mp_akimbo_stand_reload
+	}
+	playerAnimTypePrimary pistol, movetype idleprone2idlecr AND idleprone2idle
+	{
+		// fullbody reloads (like mp_pistol_prone_reload) look terrible when they blend over to torso reloads (like mp_pistol_crouch_reload)
+	}
+	playerAnimTypePrimary pistol, movetype idleprone
+	{
+		torso mp_pistol_prone_reload
+	}
+	playerAnimTypePrimary pistol, movetype prone
+	{
+	}
+	playerAnimTypePrimary pistol, movetype crouching
+	{
+		torso mp_pistol_crouch_reload
+	}
+	playerAnimType pistol
+	{
+		torso mp_pistol_stand_reload
+	}
+	playerAnimTypePrimary rocketlauncher, movetype idleprone2idlecr AND idleprone2idle
+	{
+		// fullbody reloads (like mp_rpg_prone_reload) look terrible when they blend over to torso reloads (like mp_rpg_crouch_reload)
+	}
+ 	playerAnimTypePrimary rocketlauncher, movetype idleprone
+ 	{
+	   	torso mp_rpg_prone_reload
+	}
+ 	playerAnimTypePrimary rocketlauncher, movetype prone
+ 	{
+	}
+	playerAnimTypePrimary rocketlauncher, movetype crouching
+	{
+		torso mp_rpg_crouch_reload
+	}
+	playerAnimTypePrimary rocketlauncher
+ 	{
+	   	torso mp_rpg_reload
+	}
+	movetype idleprone2idlecr AND idleprone2idle
+	{
+		// fullbody reloads (like mp_prone_reload_iw6) look terrible when they blend over to torso reloads (like mp_crouch_reload)
+	}
+	movetype idleprone
+	{
+		torso mp_prone_reload_iw6
+	}
+	movetype prone
+	{
+	}
+	movetype idlecr AND idleprone2idlecr
+	{
+		torso mp_crouch_reload
+	}
+	movetype crouching
+	{
+		torso pt_reload_crouchwalk
+	}
+	default
+	{
+		torso mp_stand_reload
+	}
+}
+
+// this is only for jumps in the forward direction. see also "jumpbk" below.
+jump
+{
+	movetype run, playerAnimType any_hold
+	{
+		both mp_hold_runjump_takeoff
+		duration 5
+		blendtime 100
+		aim idle_hold_aims
+	}
+//	movetype run AND sprint AND idle2run AND idle2sprint AND idlecr2sprint AND mantle2run AND walkcr2sprint AND prone2run AND slide2sprint, weaponclass shield
+//	{
+//		both mp_shield_runjump_takeoff
+//		duration 5
+//		blendtime 100
+//		aim run_exo_shield_F_aims
+//	}
+//	movetype run, ball_carrier
+//	{
+//		both mp_uplink_runjump_takeoff
+//		duration 5
+//		blendtime 100
+//		aim idle_uplink_ball_aim
+//	}
+	movetype run, akimbo
+	{
+		both runjump_takeoff_akimbo
+		duration 5
+		blendtime 100
+		aim idle_akimbo_aims
+	}
+	movetype run, playerAnimTypePrimary pistol
+	{
+		both runjump_takeoff_Pistol
+		duration 5
+		blendtime 100
+		aim idle_pistol_aims
+	}
+	movetype run, playerAnimType combatknife
+	{
+		both pb_runjump_takeoff_jugmaniac
+		duration 5
+		blendtime 100
+		aim idle_combatknife_aims
+	}
+	movetype run, playerAnimTypePrimary rocketlauncher
+	{
+		both runjump_takeoff_RPG
+		duration 5
+		blendtime 100
+		aim idle_rocket_aims
+	}
+	movetype run
+	{
+		both pb_runjump_takeoff
+		duration 5
+		blendtime 100
+		aim idle_rifle_aims
+	}
+	playerAnimType any_hold
+	{
+		both mp_hold_standjump_takeoff
+		duration 5
+		blendtime 100
+		aim idle_hold_aims
+	}
+//	weaponclass shield
+//	{
+//		both mp_shield_standjump_takeoff
+//		duration 5
+//		blendtime 100
+//		aim idle_exo_shield_aims
+//	}
+//	playerAnimTypePrimary minigun
+//	{
+//		both pb_mini_standjump_takeoff
+//		duration 5
+//		blendtime 100
+//		aim idle_minigun_aims
+//	}
+//	ball_carrier
+//	{
+//		both mp_uplink_standjump_takeoff
+//		duration 5
+//		blendtime 100
+//		aim idle_uplink_ball_aim
+//	}
+	akimbo
+	{
+		both standjump_takeoff_Akimbo
+		duration 5
+		blendtime 100
+		aim idle_akimbo_aims
+	}
+	playerAnimTypePrimary pistol
+	{
+		both standjump_takeoff_Pistol
+		duration 5
+		blendtime 100
+		aim idle_pistol_aims
+	}
+	playerAnimType combatknife
+	{
+		both pb_standjump_takeoff_jugmaniac
+		duration 5
+		blendtime 100
+		aim idle_combatknife_aims
+	}
+	playerAnimTypePrimary rocketlauncher
+	{
+		both standjump_takeoff_Rpg
+		duration 5
+		blendtime 100
+		aim idle_rocket_aims
+	}
+	default
+	{
+		both pb_standjump_takeoff
+		duration 5
+		blendtime 100
+		aim idle_rifle_aims
+	}
+}
+
+jumpbk
+{
+	movetype crouching AND prone
+	{
+	}
+	playerAnimType any_hold
+	{
+		both mp_hold_standjump_takeoff
+		duration 5
+		blendtime 100
+		aim idle_hold_aims
+	}
+//	movetype runbk, weaponclass shield
+//	{
+//		both mp_shield_runjump_takeoff
+//		duration 5
+//		blendtime 100
+//		aim run_exo_shield_F_aims
+//	}
+//	weaponclass shield
+//	{
+//		both mp_shield_standjump_takeoff
+//		duration 5
+//		blendtime 100
+//		aim idle_exo_shield_aims
+//	}
+//	ball_carrier
+//	{
+//		both mp_uplink_standjump_takeoff
+//		duration 5
+//		blendtime 100
+//		aim idle_uplink_ball_aim
+//	}
+//	playerAnimTypePrimary minigun
+//	{
+//		both pb_mini_standjump_takeoff
+//		duration 5
+//		blendtime 100
+//		aim idle_minigun_aims
+//	}
+	akimbo
+	{
+		both standjump_takeoff_akimbo
+		duration 5
+		blendtime 100
+		aim idle_akimbo_aims
+	}
+	playerAnimTypePrimary pistol
+	{
+		both standjump_takeoff_Pistol
+		duration 5
+		blendtime 100
+		aim idle_pistol_aims
+	}
+	playerAnimTypePrimary combatknife
+	{
+		both pb_standjump_takeoff_jugmaniac
+		duration 5
+		blendtime 100
+		aim idle_combatknife_aims
+	}
+	playerAnimTypePrimary rocketlauncher
+	{
+		both standjump_takeoff_Rpg
+		duration 5
+		blendtime 100
+		aim idle_rocket_aims
+	}
+	default
+	{
+		both pb_standjump_takeoff
+		duration 5
+		blendtime 100
+		aim idle_rifle_aims
+	}
+}
+
+land
+{
+	movetype run, playerAnimType any_hold
+	{
+		both mp_hold_runjump_land
+		blendtime 50
+		aim idle_hold_aims
+	}
+//	movetype run, weaponclass shield
+//	{
+//		both mp_shield_runjump_land
+//		duration 5
+//		blendtime 100
+//		aim run_exo_shield_F_aims
+//	}
+//	movetype run, ball_carrier
+//	{
+//		both mp_uplink_runjump_land
+//		duration 100
+//		blendtime 50
+//		aim idle_uplink_ball_aim
+//	}
+	movetype run, akimbo
+	{
+		both runjump_land_akimbo
+		duration 100
+		blendtime 50
+		aim idle_akimbo_aims
+	}
+	movetype run, playerAnimTypePrimary pistol
+	{
+		both runjump_land_Pistol
+		duration 100
+		blendtime 50
+		aim idle_pistol_aims
+	}
+	movetype run, playerAnimTypePrimary combatknife
+	{
+		both pb_runjump_land_jugmaniac
+		duration 100
+		blendtime 50
+		aim idle_combatknife_aims
+	}
+	movetype run, playerAnimTypePrimary rocketlauncher
+	{
+		both runjump_land_RPG
+		duration 100
+		blendtime 50
+		aim idle_rocket_aims
+	}
+	movetype run
+	{
+		both pb_runjump_land
+		duration 100
+		blendtime 50
+		aim idle_rifle_aims
+	}
+	playerAnimType any_hold
+	{
+		both mp_hold_standjump_land
+		duration 100
+		blendtime 50
+		aim idle_hold_aims
+	}
+//	weaponclass shield
+//	{
+//		both mp_shield_standjump_land
+//		duration 5
+//		blendtime 100
+//		aim idle_exo_shield_aims
+//	}
+//	ball_carrier
+//	{
+//		both mp_uplink_runjump_land
+//		duration 100
+//		blendtime 50
+//		aim idle_uplink_ball_aim
+//	}
+//	playerAnimTypePrimary minigun
+//	{
+//		both pb_mini_standjump_land
+//		duration 100
+//		blendtime 50
+//		aim idle_minigun_aims
+//	}
+	akimbo
+	{
+		both standjump_land_akimbo
+		duration 100
+		blendtime 50
+		aim idle_akimbo_aims
+	}
+	playerAnimTypePrimary pistol
+	{
+		both standjump_land_Pistol
+		duration 100
+		blendtime 50
+		aim idle_pistol_aims
+	}
+	playerAnimTypePrimary combatknife
+	{
+		both pb_standjump_land_jugmaniac
+		duration 100
+		blendtime 50
+		aim idle_combatknife_aims
+	}
+	playerAnimTypePrimary rocketlauncher
+	{
+		both standjump_land_Rpg
+		duration 100
+		blendtime 50
+		aim idle_rocket_aims
+	}
+	default
+	{
+		both pb_standjump_land
+		duration 100
+		blendtime 50
+		aim idle_rifle_aims
+	}
+}
+
+shellshock
+{
+	movetype laststand
+	{
+	}
+	movetype prone, playerAnimTypePrimary combatknife
+	{
+		torso mp_jug_maniac_prone_flashreaction duration 5000 blendtime 50
+	}
+	movetype prone
+	{
+	}
+//	movetype crouching, playerAnimType riotshield
+//	{
+//		torso mp_shield_crouch_flash duration 5000 blendtime 50
+//	}
+	movetype crouching, akimbo
+	{
+		torso mp_akimbo_crouch_flash_reaction_a duration 5000 blendtime 50
+		torso mp_akimbo_crouch_flash_reaction_b duration 5000 blendtime 50
+	}
+	movetype crouching, playerAnimTypePrimary combatknife
+	{
+		torso mp_jug_maniac_crouch_flashreaction duration 5000 blendtime 50
+	}
+	movetype crouching, playerAnimTypePrimary rocketlauncher
+	{
+		torso mp_rpg_crouch_flash duration 5000 blendtime 50
+	}
+	movetype crouching, playerAnimTypePrimary pistol
+	{
+		torso mp_pistol_crouch_flash_reaction_A duration 5000 blendtime 50
+		torso mp_pistol_crouch_flash_reaction_B duration 5000 blendtime 50
+	}
+//	playerAnimType riotshield
+//	{
+//	}
+	akimbo
+	{
+		torso mp_akimbo_stand_flash_reaction_A duration 5000 blendtime 50
+		torso mp_akimbo_stand_flash_reaction_B duration 5000 blendtime 50
+	}
+	playerAnimTypePrimary combatknife
+	{
+		torso mp_jug_maniac_flash_reactionA duration 5000 blendtime 50
+		torso mp_jug_maniac_flash_reactionB duration 5000 blendtime 50
+	}
+	playerAnimTypePrimary rocketlauncher
+	{
+		torso mp_rpg_flash duration 5000 blendtime 50
+	}
+	playerAnimTypePrimary pistol
+	{
+		torso mp_pistol_stand_flash_reaction_A duration 5000 blendtime 50
+		torso mp_pistol_stand_flash_reaction_B duration 5000 blendtime 50
+	}
+	default
+	{
+		torso pb_stand_shellshock duration 5000 blendtime 50
+	}
+}
+
+death
+{
+	movetype prone, inflictor_movetype prone, damagetype damage_melee_alt
+	{
+		both h1_prone_death_quickdeath
+		synchronized
+	}
+	movetype prone, inflictor_movetype crouching, damagetype damage_melee_alt
+	{
+		both h1_prone_death_quickdeath
+		synchronized
+	}
+	movetype prone, damagetype damage_melee_alt
+	{
+		both h1_prone_death_quickdeath
+		synchronized
+	}
+//	movetype crouching, damagetype damage_melee_alt, hitdirection hit_front
+//	{
+//		both pb_death_melee_exo_stand_f_v1
+//		synchronized
+//	}
+//	movetype crouching, damagetype damage_melee_alt, hitdirection hit_back
+//	{
+//		both pb_death_melee_exo_stand_b_v1
+//		synchronized
+//	}
+//	movetype crouching, damagetype damage_melee_alt, hitdirection hit_left
+//	{
+//		both pb_death_melee_exo_stand_r_v1
+//		synchronized
+//	}
+//	movetype crouching, damagetype damage_melee_alt, hitdirection hit_right
+//	{
+//		both pb_death_melee_exo_stand_l_v1
+//		synchronized
+//	}
+//	damagetype damage_melee_alt, hitdirection hit_front
+//	{
+//		both pb_death_melee_exo_stand_f_v1
+//		synchronized
+//	}
+//	damagetype damage_melee_alt, hitdirection hit_back
+//	{
+//		both pb_death_melee_exo_stand_b_v1
+//		synchronized
+//	}
+//	damagetype damage_melee_alt, hitdirection hit_left
+//	{
+//		both pb_death_melee_exo_stand_r_v1
+//		synchronized
+//	}
+//	damagetype damage_melee_alt, hitdirection hit_right
+//	{
+//		both pb_death_melee_exo_stand_l_v1
+//		synchronized
+//	}
+	damagetype damage_melee_dog
+	{
+		both pb_shotgun_death_back2
+	}
+	crouching damagetype damage_melee, hitdirection hit_front
+	{
+		both pb_melee_death_crouching_front
+	}
+	crouching damagetype damage_melee, hitdirection hit_back
+	{
+		both pb_melee_death_crouching_back
+	}
+	crouching damagetype damage_melee, hitdirection hit_left
+	{
+		both pb_melee_death_crouching_left
+	}
+	crouching damagetype damage_melee, hitdirection hit_right
+	{
+		both pb_melee_death_crouching_right
+	}
+	movetype prone
+	{
+		both h1_prone_death_quickdeath
+	}
+	damagetype damage_melee, hitdirection hit_front
+	{
+		both pb_melee_death_standing_front
+		synchronized
+	}
+	damagetype damage_melee, hitdirection hit_back
+	{
+		both pb_melee_death_standing_back
+		synchronized
+	}
+	damagetype damage_melee, hitdirection hit_left
+	{
+		both pb_melee_death_standing_left
+		synchronized
+	}
+	damagetype damage_melee, hitdirection hit_right
+	{
+		both pb_melee_death_standing_right
+		synchronized
+	}
+	movetype laststand
+	{
+		both pb_laststand_death
+	}
+	movetype idlecr
+	{
+		both pb_crouch_death_headshot_front
+		both pb_crouch_death_clutchchest
+		both pb_crouch_death_flip
+		both pb_crouch_death_fetal
+		both pb_crouch_death_falltohands
+	}
+	damagetype damage_explosion, hitdirection hit_front
+	{
+		both pb_explosion_death_B1
+	}
+	damagetype damage_explosion, hitdirection hit_left
+	{
+		both pb_explosion_death_R1
+	}
+	damagetype damage_explosion, hitdirection hit_right
+	{
+		both pb_explosion_death_L1
+	}
+	damagetype damage_explosion, hitdirection hit_back
+	{
+		both pb_explosion_death_F1
+	}
+	damagetype damage_explosion_light, hitlocation hit_legs, hitdirection hit_front
+	{
+		both pb_shotgun_death_legs
+	}
+	damagetype damage_explosion_light, hitdirection hit_front
+	{
+		both pb_shotgun_death_back2
+		both pb_stand_death_chest_blowback
+	}
+	damagetype damage_explosion_light, hitdirection hit_left
+	{
+		both pb_shotgun_death_spinL
+	}
+	damagetype damage_explosion_light, hitdirection hit_right
+	{
+		both pb_shotgun_death_spinR
+	}
+	damagetype damage_explosion_light, hitdirection hit_back
+	{
+		both pb_shotgun_death_front
+		both pb_death_run_stumble
+	}
+	movetype runbk
+	{
+		both pb_death_run_back
+	}
+	movetype run AND runcr, strafing left
+	{
+		both pb_death_run_left
+	}
+	movetype run AND runcr, strafing right
+	{
+		both pb_death_run_right
+	}
+	movetype runcr
+	{
+		both pb_crouchrun_death_drop
+		both pb_crouchrun_death_crumple
+	}
+	movetype run
+	{
+		both pb_death_run_forward_crumple
+		both pb_death_run_onfront
+		both pb_death_run_stumble
+	}
+	hitlocation hit_head
+	{
+		both pb_stand_death_neckdeath
+		both pb_stand_death_neckdeath_thrash
+		both pb_stand_death_head_straight_back
+		both pb_stand_death_head_collapse
+		both pb_stand_death_leg_kickup
+		both pb_stand_death_headshot_slowfall
+		both pb_stand_death_lowerback
+		both pb_stand_death_nervedeath
+		both pb_stand_death_headchest_topple
+		both pb_stand_death_chest_spin
+	}
+	hitlocation hit_neck
+	{
+		both pb_stand_death_neckdeath
+		both pb_stand_death_neckdeath_thrash
+	}
+	default
+	{
+		both pb_crouch_death_flip
+		both pb_death_run_back
+		both pb_stand_death_leg
+		both pb_stand_death_headshot_slowfall
+		both pb_stand_death_headchest_topple
+		both pb_stand_death_legs
+		both pb_stand_death_chest_spin
+		both pb_stand_death_tumbleback
+		both pb_stand_death_kickup
+		both pb_stand_death_stumbleforward
+		both pb_stand_death_shoulderback
+	}
+}
+
+rocket_corpse
+{
+	default
+	{
+		both mp_rpg_death_long blendtime 1
+	}
+}
+
+flinch
+{
+	playerAnimTypePrimary combatknife, movetype idleprone
+	{
+		torso mp_jug_maniac_prone_flinch_A
+		torso mp_jug_maniac_prone_flinch_B
+		torso mp_jug_maniac_prone_flinch_C
+	}
+	playerAnimTypePrimary rocketlauncher, movetype idleprone
+	{
+		torso mp_rpg_prone_flinch_A
+		torso mp_rpg_prone_flinch_B
+		torso mp_rpg_prone_flinch_C
+	}
+	akimbo, movetype idleprone
+	{
+		torso mp_flinch_akimbo_prone_A
+		torso mp_flinch_akimbo_prone_B
+	}
+	playerAnimType any_hold, movetype idleprone
+	{
+		torso h1_mp_prone_hold_flinch_a
+		torso h1_mp_prone_hold_flinch_b
+		torso h1_mp_prone_hold_flinch_c
+	}
+	playerAnimTypePrimary pistol, movetype idleprone
+	{
+		torso mp_flinch_pistol_prone_A
+		torso mp_flinch_pistol_prone_B
+	}
+//	movetype crouching, playerAnimTypePrimary riotshield
+//	{
+//		torso mp_shield_crouch_flinch_a
+//		torso mp_shield_crouch_flinch_b
+//		torso mp_shield_crouch_flinch_c
+//	}
+//	playerAnimTypePrimary riotshield
+//	{
+//		torso mp_shield_stand_flinch_a
+//		torso mp_shield_stand_flinch_b
+//	}
+	movetype idleprone
+	{
+		torso mp_flinch_prone_A
+		torso mp_flinch_prone_B
+		torso mp_flinch_prone_C
+	}
+	movetype prone
+	{
+	}
+	playerAnimTypePrimary combatknife, movetype crouching
+	{
+		torso mp_jug_maniac_crouch_flinch_A
+		torso mp_jug_maniac_crouch_flinch_B
+		torso mp_jug_maniac_crouch_flinch_C
+	}
+	playerAnimTypePrimary rocketlauncher, movetype crouching
+	{
+		torso mp_rpg_crouch_flinch_A
+		torso mp_rpg_crouch_flinch_B
+		torso mp_rpg_crouch_flinch_C
+	}
+//	playerAnimTypePrimary minigun, movetype crouching
+//	{
+//		torso mp_mini_crouch_flinch_a
+//	}
+	akimbo, movetype crouching
+	{
+		torso mp_flinch_akimbo_crouch_A
+		torso mp_flinch_akimbo_crouch_B
+		torso mp_flinch_akimbo_crouch_C
+	}
+	playerAnimType any_hold, movetype crouching
+	{
+		torso h1_mp_crouch_hold_flinch_a
+		torso h1_mp_crouch_hold_flinch_b
+		torso h1_mp_crouch_hold_flinch_c
+	}
+	playerAnimTypePrimary pistol, movetype crouching
+	{
+		torso mp_flinch_pistol_crouch_A
+		torso mp_flinch_pistol_crouch_B
+		torso mp_flinch_pistol_crouch_C
+	}
+	movetype crouching
+	{
+		torso mp_flinch_crouch_A
+		torso mp_flinch_crouch_B
+		torso mp_flinch_crouch_C
+	}
+	playerAnimTypePrimary combatknife
+	{
+		torso mp_jug_maniac_stand_flinch_a
+		torso mp_jug_maniac_stand_flinch_b
+		torso mp_jug_maniac_stand_flinch_c
+	}
+	playerAnimTypePrimary rocketlauncher
+	{
+		torso mp_rpg_stand_flinch_A
+		torso mp_rpg_stand_flinch_B
+		torso mp_rpg_stand_flinch_C
+	}
+//	playerAnimTypePrimary minigun
+//	{
+//		torso mp_mini_stand_flinch_a
+//	}
+	akimbo
+	{
+		torso mp_flinch_akimbo_stand_A
+		torso mp_flinch_akimbo_stand_B
+	}
+	playerAnimType any_hold
+	{
+		torso h1_mp_hold_flinch_a
+		torso h1_mp_hold_flinch_b
+		torso h1_mp_hold_flinch_c
+	}
+	playerAnimTypePrimary pistol
+	{
+		torso mp_flinch_pistol_stand_A
+		torso mp_flinch_pistol_stand_B
+	}
+	default
+	{
+		torso mp_flinch_stand_A
+		torso mp_flinch_stand_B
+		torso mp_flinch_stand_C
+	}
+}
